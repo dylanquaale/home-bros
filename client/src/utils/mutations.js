@@ -24,15 +24,14 @@ mutation addUser($username: String!, $email: String!, $password: String!){
 }
 `
 
-export const SAVE_BOOK = gql `
-mutation saveBook($bookData: BookInput!) {
-    saveBook(bookData: $bookData) {
+export const SAVE_PROPERTY = gql `
+mutation saveProperty($propertyData: PropertyInput!) {
+    saveProperty(propertyData: $propertyData) {
         _id
         username
         email
-        savedBooks {
-            bookId
-            authors
+        savedProperties {
+            propertyId
             description
             title
             image
@@ -42,15 +41,14 @@ mutation saveBook($bookData: BookInput!) {
 }
 `
 
-export const REMOVE_BOOK = gql `
-mutation removeBook($bookId: ID!) {
-    removeBook(bookId: $bookId) {
+export const REMOVE_PROPERTY = gql `
+mutation removeProperty($propertyId: ID!) {
+    removeProperty(propertyId: $propertyId) {
         _id
         username
         email
-        savedBooks {
-            bookId
-            authors
+        savedProperties {
+            propertyId
             description
             title
             image

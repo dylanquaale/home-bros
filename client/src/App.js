@@ -7,8 +7,8 @@ import {
   createHttpLink
 } from "@apollo/client";
 import {setContext} from "@apollo/client/link/context";
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
+import SearchProperties from './pages/SearchProperties';
+import SavedProperties from './pages/SavedProperties';
 import Navbar from './components/Navbar';
 
 const httpLink = createHttpLink({
@@ -41,11 +41,11 @@ function App() {
         <Routes>
           <Route 
             path='/' 
-            element={<SearchBooks />} 
+            element={<SearchProperties />} 
           />
           <Route 
             path='/saved' 
-            element={<SavedBooks />} 
+            element={<SavedProperties />} 
           />
           <Route 
             path='*'
