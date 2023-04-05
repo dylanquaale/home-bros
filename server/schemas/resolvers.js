@@ -39,27 +39,27 @@ const resolvers = {
 
       return { token, user };
     },
-    saveBook: async (parent, { bookData }, context) => {
+    saveproperty: async (parent, { propertyData }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { savedBooks: bookData } },
+          { $push: { savedProperties: propertyData } },
           { new: true }
         );
         return updatedUser;
       }
       throw new AuthenticationError("You Wish");
     },
-    removeBook: async (parent, { bookId }, context) => {
+    removeProperty: async (parent, { propertyId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedBooks: { bookId } } },
+          { $pull: { savedProperties: { propertyId } } },
           { new: true }
         );
         return updatedUser;
       }
-      throw new AuthenticationError("You Wish!");
+      throw new AuthenticationError("You Wish");
     },
   },
 };
