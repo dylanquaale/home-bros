@@ -62,3 +62,5 @@ fetch(`https://zillow56.p.rapidapi.com/search?location=${searchInput}`, options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
+
+  // sync
