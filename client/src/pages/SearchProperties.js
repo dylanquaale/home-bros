@@ -12,24 +12,24 @@ import Auth from '../utils/auth';
 import {SAVE_PROPERTY} from '../utils/mutations'
 import { savePropertyIds, getSavedPropertyIds } from '../utils/localStorage';
 
-const SearchBooks = () => {
+const SearchProperties = () => {
 
   // create state for holding returned google api data
   const [searchedProperties, setSearchedProperties] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
-  // create state to hold saved bookId values
+  // create state to hold saved propertyId values
   const [savedPropertyIds, setSavedPropertyIds] = useState(getSavedPropertyIds());
   const [saveProperty, {error}] = useMutation(SAVE_PROPERTY)
 
-  // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
+  // set up useEffect hook to save `savedPropertyIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
     return () => savePropertyIds(savedPropertyIds);
   });
 
-  // create method to search for books and set state on form submit
+  // create method to search for properties and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -49,7 +49,7 @@ const SearchBooks = () => {
       const { items } = await response.json();
 
       const propertyData = items.map((property) => ({
-        propertId: property.id,
+        propertyId: property.id,
         title: property.volumeInfo.title,
         description: property.volumeInfo.description,
         image: property.volumeInfo.imageLinks?.thumbnail || '',
@@ -62,9 +62,9 @@ const SearchBooks = () => {
     }
   };
 
-  // create function to handle saving a book to our database
+  // create function to handle saving a property to our database
   const handleSaveProperty = async (propertyId) => {
-    // find the book in `searchedBooks` state by the matching id
+    // find the property in `searchedProperties` state by the matching id
     const propertyToSave = setSearchedProperties.find((property) => property.propertyId === propertyId);
 
     // get token
@@ -81,7 +81,7 @@ const SearchBooks = () => {
 
       console.log(savedPropertyIds)
 
-      // if book successfully saves to user's account, save book id to state
+      // if property successfully saves to user's account, save property id to state
       setSavedPropertyIds([...savedPropertyIds, propertyToSave.propertyId]);
     } catch (err) {
       console.error(err);
@@ -120,12 +120,12 @@ const SearchBooks = () => {
         <h2 className='pt-5'>
           {searchedProperties.length
             ? `Viewing ${searchedProperties.length} results:`
-            : 'Search for a book to begin'}
+            : 'Search for a property to begin'}
         </h2>
         <Row>
           {searchedProperties.map((property) => {
             return (
-              <Col md="4" key={property.bookId} >
+              <Col md="4" key={property.propertyId} >
                 <Card key={property.propertyId} border='dark'>
                   {property.image ? (
                     <Card.Img src={property.image} alt={`The cover for ${property.title}`} variant='top' />
@@ -140,8 +140,8 @@ const SearchBooks = () => {
                         className='btn-block btn-info'
                         onClick={() => handleSaveProperty(property.propertyId)}>
                         {savedPropertyIds?.some((savedPropertyId) => savedPropertyId === property.propertyId)
-                          ? 'This book has already been saved!'
-                          : 'Save this Book!'}
+                          ? 'This property has already been saved!'
+                          : 'Save this Property!'}
                       </Button>
                     )}
                   </Card.Body>
@@ -155,4 +155,4 @@ const SearchBooks = () => {
   );
 };
 
-export default SearchBooks;
+export default SearchProperties;
