@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
-import {SAVE_PROPERTY} from '../utils/mutations'
+import { SAVE_PROPERTY } from '../utils/mutations'
 import { savePropertyIds, getSavedPropertyIds } from '../utils/localStorage';
 
 const SearchProperties = () => {
@@ -21,7 +21,7 @@ const SearchProperties = () => {
 
   // create state to hold saved propertyId values
   const [savedPropertyIds, setSavedPropertyIds] = useState(getSavedPropertyIds());
-  const [saveProperty, {error}] = useMutation(SAVE_PROPERTY)
+  const [saveProperty, { error }] = useMutation(SAVE_PROPERTY)
 
   // set up useEffect hook to save `savedPropertyIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
@@ -38,16 +38,25 @@ const SearchProperties = () => {
     }
 
     try {
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '95ca73bdfamshb3559b4cafeb6c0p1be87ajsnd385a82867f4',
+          'X-RapidAPI-Host': 'zillow56.p.rapidapi.com'
+        }
+      };
       const response = await fetch(
-        `https://zillow56.p.rapidapi.com/search?location=${searchInput}`
+        `https://zillow56.p.rapidapi.com/search?location=${searchInput}`,
+        options
       )
 
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
-
+      console.log(response.json())
       const { items } = await response.json();
-
+// destructure the correct property instead of items
+// if results exists map ELSE 
       const propertyData = items.map((property) => ({
         propertyId: property.id,
         title: property.volumeInfo.title,
@@ -75,8 +84,8 @@ const SearchProperties = () => {
     }
 
     try {
-      const {data} = await saveProperty({
-        variables: {propertyData: {...propertyToSave}}
+      const { data } = await saveProperty({
+        variables: { propertyData: { ...propertyToSave } }
       })
 
       console.log(savedPropertyIds)
