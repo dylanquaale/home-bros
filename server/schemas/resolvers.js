@@ -39,7 +39,7 @@ const resolvers = {
 
       return { token, user };
     },
-    saveproperty: async (parent, { propertyData }, context) => {
+    saveProperty: async (parent, { propertyData }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -50,7 +50,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You Wish");
     },
-    removeProperty: async (parent, { propertyId }, context) => {
+    deleteProperty: async (parent, { propertyId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
