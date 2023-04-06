@@ -3,13 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Navbar from './components/Navbar'
+import { StyledEngineProvider } from '@mui/material/styles';
+import Footer from './components/Footer';
+import HomeReviewCardUno from './components/HouseCardUno';
+import HomeReviewCardDos from './components/HouseCardDos';
+import HomeImageList from './components/HouseImages';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Navbar/>
+    <StyledEngineProvider>
+
     <App />
+
+    <HomeReviewCardUno />
+
+    <HomeReviewCardDos />
     
+    <HomeImageList />
+    <Footer />
+    </StyledEngineProvider>
   </React.StrictMode>
 );
 
