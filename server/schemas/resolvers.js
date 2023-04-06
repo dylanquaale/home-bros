@@ -2,6 +2,7 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
+// Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
@@ -38,28 +39,6 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    },
-    saveProperty: async (parent, { propertyData }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $push: { savedProperties: propertyData } },
-          { new: true }
-        );
-        return updatedUser;
-      }
-      throw new AuthenticationError("You Wish");
-    },
-    deleteProperty: async (parent, { propertyId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedProperties: { propertyId } } },
-          { new: true }
-        );
-        return updatedUser;
-      }
-      throw new AuthenticationError("You Wish");
     },
   },
 };

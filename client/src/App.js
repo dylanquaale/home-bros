@@ -1,59 +1,38 @@
-import React from 'react';
+import * as React from 'react';
+// import { styled } from '@mui/material/styles';
+// import Grid from '@mui/material/Unstable_Grid2';
+// import Paper from '@mui/material/Paper';
+// import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink
-} from "@apollo/client";
-import {setContext} from "@apollo/client/link/context";
-import SearchProperties from './pages/SearchProperties';
-import SavedProperties from './pages/SavedProperties';
-import Navbar from './components/Navbar';
-
-const httpLink = createHttpLink({
-  uri: "/graphql"
-})
-
-const authLink = setContext((_, {headers}) => {
-  const token = localStorage.getItem("id_token")
-  return {
-    headers:{
-      ...headers,
-      authorization:token ? `bearer ${token}` : ''
-    }
-  }
-})
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import PrimarySearchAppBar from './components/Navbar';
+import HomeReviewCardUno from './components/HouseCardUno';
+// import CustomFooter, { CustomFooterStatusComponent } from './components/Footer';
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
-})
-
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
 
-    <ApolloProvider client= {client}>
-    <Router>
-      <>
-        <Navbar />
-        <Routes>
-          <Route 
-            path='/' 
-            element={<SearchProperties />} 
-          />
-          <Route 
-            path='/saved' 
-            element={<SavedProperties />} 
-          />
-          <Route 
-            path='*'
-            element={<h1 className='display-2'>Wrong page!</h1>}
-          />
-        </Routes>
-      </>
-    </Router>
+    <ApolloProvider client={client}>
+      <div className="flex-column justify-center align-center min-100-vh bg-primary">
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={<PrimarySearchAppBar />}
+            />
+            <Route
+              path="*"
+              element={<HomeReviewCardUno />}
+            />
+          </Routes>
+        </Router>
+      </div>
     </ApolloProvider>
   );
 }
