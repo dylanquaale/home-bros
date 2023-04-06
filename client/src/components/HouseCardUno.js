@@ -52,7 +52,7 @@ export default function HomeReviewCardUno() {
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
+        image="https://source.unsplash.com/random/200x300?real-estate"
         alt="Rosemount Home"
       />
       <CardContent>

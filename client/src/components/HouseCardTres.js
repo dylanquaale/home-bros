@@ -26,7 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function HomeReviewCardDos() {
+export default function HomeReviewCardTres() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -46,13 +46,13 @@ export default function HomeReviewCardDos() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Home 2"
+        title="Home 3"
         subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
         height="194"
-        image="https://source.unsplash.com/random/450x300?luxury-home"
+        image="https://source.unsplash.com/random/400x300?luxury-home"
         alt="Rosemount Home"
       />
       <CardContent>

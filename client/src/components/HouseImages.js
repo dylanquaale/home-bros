@@ -8,9 +8,9 @@ import InfoIcon from '@mui/icons-material/Info';
 
 export default function HomeImageList() {
   return (
-    <ImageList visibleScrollbar={false} sx={{ width:`100%`, height: 450 }}>
+    <ImageList sx={{ width:`100%`, height: 450 }}>
       <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader component="div" visibleScrollbar={false}>December</ListSubheader>
+        <ListSubheader component="div" >December</ListSubheader>
       </ImageListItem>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>

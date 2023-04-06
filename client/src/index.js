@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import HomeReviewCardUno from './components/HouseCardUno';
 import HomeReviewCardDos from './components/HouseCardDos';
 import HomeImageList from './components/HouseImages';
+import HomeReviewCardTres from './components/HouseCardTres';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,11 +16,13 @@ root.render(
     <StyledEngineProvider>
 
     <App />
-
+    <div className="flex-column justify-center align-center min-100-vh bg-primary">
     <HomeReviewCardUno />
 
     <HomeReviewCardDos />
-    
+
+    <HomeReviewCardTres />
+    </div>
     <HomeImageList />
     <Footer />
     </StyledEngineProvider>
