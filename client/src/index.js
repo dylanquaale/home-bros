@@ -9,11 +9,14 @@ import HomeReviewCardUno from './components/HouseCardUno';
 import HomeReviewCardDos from './components/HouseCardDos';
 import HomeImageList from './components/HouseImages';
 import HomeReviewCardTres from './components/HouseCardTres';
+import GenerateFakeProperty from './components/fakeproperty';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <StyledEngineProvider>
+
+    <GenerateFakeProperty/>
 
     <App />
     <div className="flex-column justify-center align-center min-100-vh bg-primary">
