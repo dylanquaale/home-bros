@@ -1,5 +1,5 @@
 import React from 'react';
-import { faker } from '@faker-js/faker';
+const { faker } = require("@faker-js/faker");
 
 const generateFakeProperty = () => {
   return {
@@ -14,7 +14,6 @@ const generateFakeProperty = () => {
     bathrooms: faker.datatype.number({ min: 1, max: 5 }),
     squareFeet: faker.datatype.number({ min: 1000, max: 5000 }),
     image: faker.image.imageUrl(640, 480, 'realestate', true, true),
-    link: faker.internet.url(),
   };
 };
 
