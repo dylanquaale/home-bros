@@ -13,7 +13,7 @@ async function seedData() {
         const city = faker.address.city();
         const state = faker.address.stateAbbr();
         const zipcode = faker.address.zipCode();
-        const price = faker.datatype.number({ min: 100000, max: 1000000 });
+        const price = faker.finance.amount(100000, 1000000, 2);
         const bedrooms = faker.datatype.number({ min: 1, max: 5 });
         const bathrooms = faker.datatype.number({ min: 1, max: 5 });
         const squareFeet = faker.datatype.number({ min: 1000, max: 5000 });

@@ -9,6 +9,7 @@ const generateFakeProperty = () => {
     state: faker.address.stateAbbr(),
     zipcode: faker.address.zipCode(),
     price: faker.datatype.number({ min: 100000, max: 1000000 }),
+    price: faker.finance.amount(100000, 1000000, 2),
     bedrooms: faker.datatype.number({ min: 1, max: 5 }),
     bathrooms: faker.datatype.number({ min: 1, max: 5 }),
     squareFeet: faker.datatype.number({ min: 1000, max: 5000 }),
