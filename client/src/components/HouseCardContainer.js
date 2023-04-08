@@ -1,3 +1,9 @@
+
+
+// IMPORTANT USE LINE 30 AND MAKE A FUNCTION THAT RETURNS THE DATA 
+
+
+
 import * as React from 'react';
 // import { styled } from '@mui/material/styles';
 // import Card from '@mui/material/Card';
@@ -20,7 +26,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 // import Box from '@mui/material/Box';
 import { Container, Grid } from '@mui/material';
 import HomeReviewCardUno from './HouseCardUno';
-
+// import generateFakeProperty from './HouseCardUno';
+// import { QUERY_PROPERTIES } from '../../utils/queries';
+// make a function that returns this data
 
 
 
@@ -33,6 +41,7 @@ export default function SimpleContainer() {
                     {Array.from({ length: 6 }).map((_, index) => (
                         <Grid key={index} item xs={12} sm={6} md={4}>
                             <HomeReviewCardUno />
+                            {/* { QUERY_PROPERTIES } */}
                         </Grid>
                     ))}
                 </Grid>

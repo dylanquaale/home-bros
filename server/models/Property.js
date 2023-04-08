@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const productSchema = new mongoose.Schema({
+const propertySchema = new mongoose.Schema({
     address: {
         type: String,
         required: true
@@ -37,5 +37,7 @@ const productSchema = new mongoose.Schema({
         required: true
     },
 })
-const Product = mongoose.model("Product", productSchema)
-module.exports = Product;
+const Property = mongoose.model("Property", propertySchema)
+
+module.exports = Property;
+

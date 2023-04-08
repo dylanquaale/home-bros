@@ -9,3 +9,18 @@ export const QUERY_ME = gql`
     }
 }
 `
+export const QUERY_PROPERTIES = gql`
+{
+    properties {
+    _id
+    address
+    bathrooms
+    bedrooms
+    city
+    image
+    price
+    squareFeet
+    state
+    zipcode
+  }
+}`

@@ -1,13 +1,12 @@
 const { faker } = require("@faker-js/faker");
 const mongoose = require("mongoose")
-const Product = require("../models/model")
-
+const Property = require("../models/Property")
 async function seedData() {
     // Connection URL
     const uri = "mongodb://localhost:27017/fakerproperty_db";
     const seed_count = 2;
     let timeSeriesData = [];
-    // create 200 fake data
+    // change seed data to match your model
     for (let i = 0; i < seed_count; i++) {
         const address = faker.address.streetAddress();
         const city = faker.address.city();
@@ -20,14 +19,11 @@ async function seedData() {
         const image = faker.image.imageUrl(640, 480, 'realestate', true, true)
         timeSeriesData.push({ address, city, state, zipcode, price, bedrooms, bathrooms, squareFeet, image });
     }
-
     mongoose.connect(uri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
-    
-    await Product.insertMany(timeSeriesData);
+    await Property.insertMany(timeSeriesData);
     mongoose.connection.close();
 }
-
 seedData()
