@@ -12,8 +12,6 @@ import HomeImageList from './components/HouseImages';
 import SimpleContainer from './components/HouseContainer';
 // import LoginForm from './components/LoginForm';
 // import SignupForm from './components/SignupForm';
-
-import HomeReviewCardTres from './components/HouseCardTres';
 import GenerateFakeProperty from './components/fakeproperty';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
