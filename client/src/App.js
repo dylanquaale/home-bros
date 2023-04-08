@@ -12,8 +12,8 @@ import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from "@apollo/client/link/context";
 import PrimarySearchAppBar from './components/Navbar';
 import HomeReviewCardUno from './components/HouseCardUno';
-import SimpleContainer from './components/HouseContainer';
-import HouseContainer from './components/HouseContainer';
+// import SimpleContainer from './components/HouseContainer';
+// import HouseContainer from './components/HouseContainer';
 // import CustomFooter, { CustomFooterStatusComponent } from './components/Footer';
 
 

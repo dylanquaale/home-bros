@@ -9,21 +9,22 @@ import Footer from './components/Footer';
 // import HomeReviewCardDos from './components/HouseCardDos';
 import HomeImageList from './components/HouseImages';
 // import HomeReviewCardTres from './components/HouseCardTres';
-import SimpleContainer from './components/HouseContainer';
+import SimpleContainer from './components/HouseCardContainer';
 // import LoginForm from './components/LoginForm';
 // import SignupForm from './components/SignupForm';
-import GenerateFakeProperty from './components/fakeproperty';
+// import GenerateFakeProperty from './components/fakeproperty';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <StyledEngineProvider>
 
-    <GenerateFakeProperty/>
+    {/* <GenerateFakeProperty/> */}
 
     <App />
     <div className="flex-column justify-center align-center min-100-vh bg-primary">
       <SimpleContainer />
+
     {/* <HomeReviewCardUno />
 
 

@@ -15,6 +15,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
+const { faker } = require("@faker-js/faker");
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -52,6 +54,7 @@ export default function HomeReviewCardUno() {
       <CardMedia
         component="img"
         height="194"
+        image=""
         image="https://source.unsplash.com/random/200x300?real-estate"
         alt="Rosemount Home"
       />
