@@ -9,6 +9,8 @@ import HomeReviewCardUno from './components/HouseCardUno';
 import HomeReviewCardDos from './components/HouseCardDos';
 import HomeImageList from './components/HouseImages';
 import HomeReviewCardTres from './components/HouseCardTres';
+// import LoginForm from './components/LoginForm';
+// import SignupForm from './components/SignupForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +26,8 @@ root.render(
     <HomeReviewCardTres />
     </div>
     <HomeImageList />
+    {/* <SignupForm />
+    <LoginForm /> */}
     <Footer />
     </StyledEngineProvider>
   </React.StrictMode>
