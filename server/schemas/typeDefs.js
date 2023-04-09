@@ -11,9 +11,23 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+  type Property {
+    _id: ID
+    address: String
+    city: String
+    state: String
+    zipcode: String
+    price: String
+    bedrooms: String
+    bathrooms: String
+    squareFeet: String
+    image: String
+  }
+
   # Define which queries the front end is allowed to make and what data is returned
   type Query {
     me: [User]
+    properties:[Property]
   }
   type Mutation {
     login(email: String!, password: String!): Auth

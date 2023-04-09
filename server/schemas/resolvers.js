@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
+const { Property } = require("../models");
 
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
@@ -15,6 +16,12 @@ const resolvers = {
       }
       throw new AuthenticationError("You Need Too Login Wisher");
     },
+
+    properties: async () => {
+      // const propertyData = await Property.find();
+      return Property.find({});
+    },
+
   },
 
   Mutation: {
