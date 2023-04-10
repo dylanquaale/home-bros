@@ -1,8 +1,4 @@
-
-
 // IMPORTANT USE LINE 30 AND MAKE A FUNCTION THAT RETURNS THE DATA 
-
-
 
 import * as React from 'react';
 // import { styled } from '@mui/material/styles';
@@ -25,30 +21,43 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 // import Box from '@mui/material/Box';
 import { Container, Grid } from '@mui/material';
-import HomeReviewCardUno from './HouseCardUno';
+import HomeReviewCardUno from './PropertyCard';
 // import generateFakeProperty from './HouseCardUno';
-// import { QUERY_PROPERTIES } from '../../utils/queries';
+// import { useQuery } from '@apollo/client';
+// import { QUERY_PROPERTIES } from '../utils/queries';
+
 // make a function that returns this data
 
-
-
 export default function SimpleContainer() {
+    // const { loading, data } = useQuery(QUERY_PROPERTIES);
+  
+    // if (loading) return <p>Loading...</p>;       
+  
     return (
-        <React.Fragment>
-            <CssBaseline />
-            <Container maxWidth="lg">
-                <Grid container spacing={3}>
-                    {Array.from({ length: 6 }).map((_, index) => (
-                        <Grid key={index} item xs={12} sm={6} md={4}>
-                            <HomeReviewCardUno />
-                            {/* { QUERY_PROPERTIES } */}
-                        </Grid>
-                    ))}
-                </Grid>
-            </Container>
-        </React.Fragment>
+      <React.Fragment>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          <Grid container spacing={3}>
+            {/* {data.properties.map(({ _id, address, bathrooms, bedrooms, city, image, price, squareFeet, state, zipcode }) => (
+              <Grid key={_id} item xs={12} sm={6} md={4}> */}
+                {<HomeReviewCardUno />}
+                  {/* address={address}
+                  bathrooms={bathrooms}
+                  bedrooms={bedrooms}
+                  city={city}
+                  image={image}
+                  price={price}
+                  squareFeet={squareFeet}
+                  state={state}
+                  zipcode={zipcode} */}
+                {/* /> */}
+              {/* </Grid> */}
+            {/* ))} */}
+          </Grid>
+        </Container>
+      </React.Fragment>
     );
-}
+  }
 
 
 {/* <React.Fragment>

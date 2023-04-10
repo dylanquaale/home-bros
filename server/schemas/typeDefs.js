@@ -6,7 +6,9 @@ const typeDefs = gql`
     _id: ID
     username: String!
     email: String
+    savedProperties: [Property]
   }
+
   type Auth {
     token: ID!
     user: User
@@ -26,7 +28,7 @@ const typeDefs = gql`
 
   # Define which queries the front end is allowed to make and what data is returned
   type Query {
-    me: [User]
+    me: User
     properties:[Property]
   }
   type Mutation {
