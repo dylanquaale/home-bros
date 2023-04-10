@@ -15,8 +15,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-// import LoginForm from './LoginForm';
-// import SignupForm from './SignupForm';
+import {Link} from "react-router-dom";
+import Auth from '../utils/auth';
+
 
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -160,6 +161,15 @@ import MoreIcon from '@mui/icons-material/MoreVert';
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
+          <Link to="/"> Home </Link>
+        
+        {Auth.loggedIn() ?
+        <div>
+        <Link to="/signup"> Signup </Link>
+        <Link to="/login"> Login </Link> 
+        </div>
+      : <a onClick={() => Auth.logout()}>logout</a>
+        }
             <IconButton
               size="large"
               edge="start"
