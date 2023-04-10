@@ -161,15 +161,29 @@ import Auth from '../utils/auth';
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-          <Link to="/"> Home </Link>
+          {/* <Link to="/"> Home </Link> */}
         
-        {Auth.loggedIn() ?
+        {/* {Auth.loggedIn() ?
         <div>
         <Link to="/signup"> Signup </Link>
         <Link to="/login"> Login </Link> 
         </div>
       : <a onClick={() => Auth.logout()}>logout</a>
-        }
+        } */}
+        <div>
+      {Auth.loggedIn() ? (
+        <div>
+          <Link to="/">Home</Link>
+          <a onClick={() => Auth.logout()}>Logout</a>
+        </div>
+      ) : (
+        <div>
+          <Link to="/signup">Signup</Link>
+          <Link to="/login">Login</Link>
+        </div>
+      )}
+    </div>
+
             <IconButton
               size="large"
               edge="start"
