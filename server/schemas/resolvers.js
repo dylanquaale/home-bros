@@ -1,7 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
-const { Property } = require("../models");
+// const { Property } = require("../models");
 
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
@@ -15,10 +15,10 @@ const resolvers = {
       throw new AuthenticationError("You Need Too Login Wisher");
     },
 
-    properties: async () => {
-      // const propertyData = await Property.find();
-      return Property.find({});
-    },
+    // properties: async () => {
+    //   // const propertyData = await Property.find();
+    //   return Property.find({});
+    // },
 
   },
 
@@ -44,6 +44,28 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    saveProperty: async (parent, { propertyData }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { savedProperties: propertyData} },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("No User Found");
+    },
+    removeProperty: async (parent, { propertyId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedProperties: { propertyId } } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("No User Found");
     },
   },
 };

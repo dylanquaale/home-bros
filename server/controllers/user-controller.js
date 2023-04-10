@@ -44,4 +44,29 @@ module.exports = {
           }
           return res.json(user);
       },
+      async saveProperty({ user, body }, res) {
+        console.log(user);
+        try {
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: user._id },
+            { $addToSet: { savedProperties: body } },
+            { new: true }
+          );
+          return res.json(updatedUser);
+        } catch (err) {
+          console.log(err);
+          res.status(400).json(err);
+        }
+      },
+      async removeProperty({ user, params }, res) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id },
+          { $pull: { savedProperties: { propertyId: params.propertyId } } },
+          { new: true }
+        );
+        if (!updatedUser) {
+          return res.status(404).json({ message: "Couldn't find user with this id!" });
+        }
+        return res.json(updatedUser);
+      },
 };
