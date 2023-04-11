@@ -13,10 +13,12 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Auth from "../utils/auth";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const navigate = useNavigate();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -38,6 +40,11 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const handleProfileClick = () => {
+    navigate("/saved");
+    handleMenuClose();
+  };
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
       <Menu
@@ -55,8 +62,8 @@ export default function PrimarySearchAppBar() {
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My Saved Properties</MenuItem>
+        <MenuItem onClick={handleProfileClick}>My saved Properties</MenuItem>
+        {/* <MenuItem onClick={handleMenuClose}>My Saved Properties</MenuItem> */}
       </Menu>
     );
 
@@ -97,7 +104,7 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem onClick={handleProfileClick}>
         <IconButton
           size="large"
           aria-label="account of current user"
