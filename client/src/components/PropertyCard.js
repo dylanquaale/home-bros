@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import axios from 'axios';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -15,6 +16,50 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
+//idk how to refactor this in with the new code
+
+// const PEXELS_API_KEY = 'dTxSFdIsdAJk7qP6gPugs1z5ftld7yXjc9AoOiQVScGERh4YmLl3skpP';
+
+// export default function SimpleContainer() {
+//     const [images, setImages] = React.useState([]);
+  
+//     React.useEffect(() => {
+//       const fetchImages = async () => {
+//         try {
+//           const response = await axios.get('https://api.pexels.com/v1/search', {
+//             headers: {
+//               Authorization: PEXELS_API_KEY,
+//             },
+//             params: {
+//               query: 'house',
+//               per_page: 6,
+//             },
+//           });
+  
+//           setImages(response.data.photos);
+//         } catch (error) {
+//           console.error('Error fetching images:', error);
+//         }
+//       };
+  
+//       fetchImages();
+//     }, []);
+  
+  //   return (
+  //     <React.Fragment>
+  //       <CssBaseline />
+  //       <Container maxWidth="lg">
+  //         <Grid container spacing={3}>
+  //           {images.map((image, index) => (
+  //             <Grid key={index} item xs={12} sm={6} md={4}>
+  //               <HomeReviewCardUno imageUrl={image.src.medium} />
+  //             </Grid>
+  //           ))}
+  //         </Grid>
+  //       </Container>
+  //     </React.Fragment>
+  //   );
+  // }
 const { QUERY_PROPERTIES } = require('../utils/queries');
 const { useQuery } = require('@apollo/client');
 
