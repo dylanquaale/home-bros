@@ -1,8 +1,5 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
-const propertySchema = require('./Property');
-
 const userSchema = new Schema(
   {
     username: {
@@ -20,7 +17,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-     savedProperties: [propertySchema],
+     savedProperties: [{
+      type: Schema.Types.ObjectID,
+      ref: "Property"}],
   },
     {
       toJSON: {

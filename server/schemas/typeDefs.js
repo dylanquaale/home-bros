@@ -24,18 +24,18 @@ const typeDefs = gql`
     squareFeet: String
     image: String
   }
-  input PropertyInput {
-    _id: String
-    address: String
-    city: String
-    state: String
-    zipcode: String
-    price: String
-    bedrooms: String
-    bathrooms: String
-    squareFeet: String
-    image: String
-  }
+  # input PropertyInput {
+  #   _id: String
+  #   address: String
+  #   city: String
+  #   state: String
+  #   zipcode: String
+  #   price: String
+  #   bedrooms: String
+  #   bathrooms: String
+  #   squareFeet: String
+  #   image: String
+  # }
   # Define which queries the front end is allowed to make and what data is returned
   type Query {
     me: User
@@ -44,8 +44,9 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveProperty(propertyData: PropertyInput!): User
-    removeProperty(propertyId: ID!): User
+    saveProperty(propertyData: String!): User
+    removeProperty(propertyId: String!): User
+    # change to ID if not working
   }
 
 `;
