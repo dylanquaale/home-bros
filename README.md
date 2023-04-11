@@ -30,13 +30,12 @@ hello world
 
 - <a href="https://github.com/dylanquaale/home-bros">Github Repo</a>
 
-- <a href="https://arcane-savannah-38796.herokuapp.com/">Heroku </a>
+- <a href="https://arcane-savannah-38796.herokuapp.com/">Heroku Live Website </a>
 
 SCREENSHOTS
 
 ## Credits 
 
-- In collaboration with : 
 - In collaboration with : 
 - Miguel Montenegro  https://github.com/Darkunitx
 - Nicholas Mamberger https://github.com/NickHM05

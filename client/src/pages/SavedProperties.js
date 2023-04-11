@@ -94,7 +94,7 @@ const SavedProperties = () => {
                   <CardHeader
                     avatar={
                       <Avatar sx={{ bgcolor: red[500] }} aria-label="Home">
-                        H
+                        
                       </Avatar>
                     }
                     title={property.address}
@@ -109,8 +109,8 @@ const SavedProperties = () => {
                     <Typography variant="body2" color="text.secondary"></Typography>
                   </CardContent>
                   <CardActions disableSpacing>
-                    <IconButton aria-label="add to favorites"> 
-                      <FavoriteIcon />
+                    <IconButton  aria-label="add to favorites"> 
+                      <FavoriteIcon sx={{ color: red[500] }}/>
                     </IconButton>
                     <IconButton aria-label="share">
                     </IconButton>
