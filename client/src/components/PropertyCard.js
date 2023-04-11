@@ -1,7 +1,5 @@
 //idk how to refactor this in with the new code
 
-
-
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -15,9 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -68,6 +64,13 @@ const { useQuery } = require('@apollo/client');
 //   );
 // }
 
+const Header = styled(Typography)`
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 30px;
+`;
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -78,6 +81,7 @@ const ExpandMore = styled((props) => {
     duration: theme.transitions.duration.shortest,
   }),
 }));
+
 export default function PropertyCard() {
   const { loading, data } = useQuery(QUERY_PROPERTIES);
   const propertylist = data?.properties || [];
@@ -86,10 +90,12 @@ export default function PropertyCard() {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
+      <Header variant="h1" align="center">Listings Currently Available</Header>
         <Grid container spacing={3}>
           {propertylist.map((property, i) => (
             <Grid key={i} item xs={12} sm={6} md={4}>
@@ -99,11 +105,6 @@ export default function PropertyCard() {
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="Home">
                       H
                     </Avatar>
-                  }
-                  action={
-                    <IconButton aria-label="settings">
-                      <MoreVertIcon />
-                    </IconButton>
                   }
                   title={property.address}
                 />
@@ -121,7 +122,6 @@ export default function PropertyCard() {
                     <FavoriteIcon />
                   </IconButton>
                   <IconButton aria-label="share">
-                    <ShareIcon />
                   </IconButton>
                   <ExpandMore
                     expand={expanded}
