@@ -24,6 +24,7 @@ import Grid from '@mui/material/Grid';
 const { QUERY_PROPERTIES } = require('../utils/queries');
 const { useQuery } = require('@apollo/client');
 
+
 // const PEXELS_API_KEY = 'dTxSFdIsdAJk7qP6gPugs1z5ftld7yXjc9AoOiQVScGERh4YmLl3skpP';
 
 // export default function SimpleContainer() {
