@@ -60,7 +60,6 @@ export default function PrimarySearchAppBar() {
         onClose={handleMenuClose}
       >
         <MenuItem onClick={handleProfileClick}>My saved Properties</MenuItem>
-        {/* <MenuItem onClick={handleMenuClose}>My Saved Properties</MenuItem> */}
       </Menu>
     );
 
@@ -103,7 +102,16 @@ export default function PrimarySearchAppBar() {
           <a href="/">
             <Button variant="contained">Home</Button>
           </a>
-          <div>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              HomeBros
+            </Typography>
+            <Box sx={{ flexGrow: 1 }} />
+            <div>
             {Auth.loggedIn() ? (
               <div>
                 <Button onClick={() => Auth.logout()} variant="contained">
@@ -121,15 +129,6 @@ export default function PrimarySearchAppBar() {
               </div>
             )}
           </div>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-              HomeBros
-            </Typography>
-            <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <IconButton
                 size="large"
