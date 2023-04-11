@@ -1,8 +1,5 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
-// const propertySchema = require('./Property');
-
 const userSchema = new Schema(
   {
     username: {
@@ -20,8 +17,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-
-    // savedProperties: [propertySchema],
+     savedProperties: [{
+      type: Schema.Types.ObjectID,
+      ref: "Property"}],
   },
     {
       toJSON: {
@@ -43,9 +41,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// userSchema.virtual('propertyCount').get(function () {
-//   return this.savedProperties.length;
-// });
+userSchema.virtual('propertyCount').get(function () {
+  return this.savedProperties.length;
+});
 
 const User = model('User', userSchema);
 

@@ -161,7 +161,7 @@ import Auth from '../utils/auth';
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-          {/* <Link to="/"> Home </Link> */}
+          <Link to="/"> Home </Link>
         
         {/* {Auth.loggedIn() ?
         <div>
@@ -173,7 +173,7 @@ import Auth from '../utils/auth';
         <div>
       {Auth.loggedIn() ? (
         <div>
-          <Link to="/">Home</Link>
+          <Link to="/"></Link>
           <a onClick={() => Auth.logout()}>Logout</a>
         </div>
       ) : (
