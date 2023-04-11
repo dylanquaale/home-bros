@@ -1,55 +1,64 @@
-// import * as React from 'react';
-// import Box from '@mui/material/Box';
-// import Button from '@mui/material/Button';
-// import { useDemoData } from '@mui/x-data-grid-generator';
-// import { DataGrid } from '@mui/x-data-grid';
-// import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import React from 'react';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
-// export function CustomFooterStatusComponent(props) {
-//   return (
-//     <Box sx={{ p: 1, display: 'flex' }}>
-//       <FiberManualRecordIcon
-//         fontSize="small"
-//         sx={{
-//           mr: 1,
-//           color: props.status === 'connected' ? '#4caf50' : '#d9182e',
-//         }}
-//       />
-//       Status {props.status}
-//     </Box>
-//   );
-// }
-
-// export default function CustomFooter() {
-//   const [status, setStatus] = React.useState('connected');
-//   const { data } = useDemoData({
-//     dataSet: 'Employee',
-//     rowLength: 4,
-//     maxColumns: 6,
-//   });
-//   return (
-//     <Box sx={{ width: '100%' }}>
-//       <Box sx={{ height: 350, width: '100%', mb: 1 }}>
-//         <DataGrid
-//           {...data}
-//           slots={{
-//             footer: CustomFooterStatusComponent,
-//           }}
-//           slotProps={{
-//             footer: { status },
-//           }}
-//         />
-//       </Box>
-//       <Button
-//         variant="contained"
-//         onClick={() =>
-//           setStatus((current) =>
-//             current === 'connected' ? 'disconnected' : 'connected',
-//           )
-//         }
-//       >
-//         {status === 'connected' ? 'Disconnect' : 'Connect'}
-//       </Button>
-//     </Box>
-//   );
-// }
+const FooterRoot = styled('footer')(({ theme }) => ({
+    backgroundColor: theme.palette.primary.dark,
+    padding: theme.spacing(6, 0),
+  }));
+  
+  const FooterLink = styled(Link)(({ theme }) => ({
+    color: theme.palette.common.white,
+    margin: theme.spacing(1, 1.5),
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  }));
+  
+  const LogoContainer = styled('div')({
+    display: 'flex',
+    alignItems: 'center',
+  });
+  
+  const LogoImage = styled('img')(({ theme }) => ({
+    width: 35,
+    marginRight: theme.spacing(1),
+  }));
+  
+  export default function Footer() {
+    return (
+      <FooterRoot>
+        <Grid container>
+          <Grid item xs={12} sm={6}>
+            <LogoContainer>
+              <LogoImage
+                src="/homebros-logo.png"
+                alt="HomeBros Logo"
+              />
+              <Typography variant="body1" color="textSecondary">
+                &copy; HomeBros Real Estate 2023
+              </Typography>
+            </LogoContainer>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" color="textSecondary" align="right">
+              <FooterLink href="#">
+                About Us
+              </FooterLink>
+              <FooterLink href="#">
+                Contact Us
+              </FooterLink>
+              <FooterLink href="#">
+                Privacy Policy
+              </FooterLink>
+              <FooterLink href="#">
+                Terms &amp; Conditions
+              </FooterLink>
+            </Typography>
+          </Grid>
+        </Grid>
+      </FooterRoot>
+    );
+  }

@@ -14,8 +14,7 @@ import PrimarySearchAppBar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignupForm';
 import Home from "./components/Home"
-
-// import CustomFooter from './components/Footer';
+import CustomFooter from './components/Footer';
 
 import { StyledEngineProvider } from '@mui/material/styles';
 
@@ -68,7 +67,8 @@ function App() {
                 element={<PropertyCard />}
               />
             </Routes>
-            {/* <CustomFooter /> */}
+            
+            <CustomFooter />
 
           </Router>
 
