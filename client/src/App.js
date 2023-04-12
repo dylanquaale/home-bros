@@ -37,17 +37,6 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-// const spaceItem = styled(div)(({ theme }) => ({
-//   fontFamily: 'Trebuchet MS',
-//   color: theme.palette.common.white,
-//   display: 'flex',
-//   justifyContent: 'space-between',
-// }));
-
-// // .container {
-//   display: flex;
-//   justify-content: space-between;
-// }
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
@@ -59,7 +48,7 @@ function App() {
     <ApolloProvider client={client}>
       <StyledEngineProvider>
         <ThemeProvider theme={theme}>
-          <body className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
+          <div className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
 
             <Router>
               <PrimarySearchAppBar />
@@ -82,16 +71,15 @@ function App() {
                   path="*"
                   element={<PropertyCard />}
                 />
-                {/* <spaceItem></spaceItem> */}
               </Routes>
 
-
             </Router>
-          </body>
-          <footer className='margin'>
-            <CustomFooter />
-          </footer>
-
+          </div>
+          {/* <div className='footer-container'>
+            <footer className='footer-content'> */}
+              <CustomFooter />
+            {/* </footer>
+          </div> */}
         </ThemeProvider>
 
       </StyledEngineProvider >

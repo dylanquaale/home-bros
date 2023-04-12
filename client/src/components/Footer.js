@@ -5,15 +5,17 @@ import logo from './Assets/logo.jpg';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-// import "typeface-cormorant";
+import { Container } from 'react-bootstrap';
 
-// const theme = createTheme({
-//   typography: {
-//     fontFamily: [
-//       'Cormorant',
-//       'serif',
-//     ].join(','),
-// },});
+// const FootContainer = styled(Grid)({
+//   display: 'flex',
+//   flexDirection: 'column',
+//   minHeight: '100vh',
+// });
+
+// const Foot = styled(Grid)({
+//   flexGrow: '1',
+// });
 
 const FooterText = styled(Typography)(({ theme }) => ({
   fontFamily: 'Trebuchet MS',
@@ -21,7 +23,7 @@ const FooterText = styled(Typography)(({ theme }) => ({
 }));
 
 const FooterRoot = styled('footer')(({ theme }) => ({
-  marginTop:'25%',
+  marginTop: '67%',
   backgroundColor: theme.palette.primary.dark,
   padding: theme.spacing(6, 0),
 }));
@@ -32,7 +34,7 @@ const FooterLink = styled(Link)(({ theme }) => ({
   display: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  
+
   margin: theme.spacing(1, 1.5),
   '&:hover': {
     textDecoration: 'underline',
@@ -54,36 +56,40 @@ const LogoImage = styled('img')(({ theme }) => ({
 export default function Footer() {
   return (
     <FooterRoot>
-      <Grid container>
-        <Grid item xs={12} sm={6}>
-          <LogoContainer>
-            <LogoImage
-              img src= {logo}
-              alt="HomeBros Logo"
-            />
-            <Typography variant="body1" color="textSecondary">
-              <FooterText>&copy; HomeBros Real Estate 2023</FooterText>
+      {/* <FootContainer>
+        <Foot> */}
+          <Grid container>
+            <Grid item xs={12} sm={6}>
+              <LogoContainer>
+                <LogoImage
+                  img src={logo}
+                  alt="HomeBros Logo"
+                />
+                <Typography variant="body1" color="textSecondary">
+                  <FooterText>&copy; HomeBros Real Estate 2023</FooterText>
 
-            </Typography>
-          </LogoContainer>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Typography variant="body1" color="textSecondary" align="right">
-            <FooterLink href="#">
-              About Us
-            </FooterLink>
-            <FooterLink href="#">
-              Contact Us
-            </FooterLink>
-            <FooterLink href="#">
-              Privacy Policy
-            </FooterLink>
-            <FooterLink href="#">
-              Terms &amp; Conditions
-            </FooterLink>
-          </Typography>
-        </Grid>
-      </Grid>
+                </Typography>
+              </LogoContainer>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography variant="body1" color="textSecondary" align="right">
+                <FooterLink href="#">
+                  About Us
+                </FooterLink>
+                <FooterLink href="#">
+                  Contact Us
+                </FooterLink>
+                <FooterLink href="#">
+                  Privacy Policy
+                </FooterLink>
+                <FooterLink href="#">
+                  Terms &amp; Conditions
+                </FooterLink>
+              </Typography>
+            </Grid>
+          </Grid>
+        {/* </Foot>
+      </FootContainer> */}
     </FooterRoot>
   );
 }
