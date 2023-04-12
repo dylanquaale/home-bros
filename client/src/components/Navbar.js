@@ -43,6 +43,10 @@ export default function PrimarySearchAppBar() {
     navigate("/saved");
     handleMenuClose();
   };
+  const handleSaved = () => {
+    navigate("/login");
+    
+  };
 
   const HomeBrosImage = styled('img')(({ theme }) => ({
     padding: '5px',
@@ -51,26 +55,34 @@ export default function PrimarySearchAppBar() {
     marginRight: theme.spacing(1),
   }));
 
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleProfileClick}>My saved Properties</MenuItem>
-    </Menu>
-  );
+    const menuId = 'primary-search-account-menu';
+    const renderMenu = (
+      <Menu
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        id={menuId}
+        keepMounted
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={isMenuOpen}
+        onClose={handleMenuClose}
+      >
+        {Auth.loggedIn() ? (
+              <div>
+                <MenuItem onClick={handleProfileClick}>My saved Properties</MenuItem>
+              </div>
+            ) : (
+              <div>
+                <MenuItem onClick={handleSaved}>My saved Properties</MenuItem>
+              </div>
+            )}
+      </Menu>
+    );
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
