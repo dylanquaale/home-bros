@@ -102,7 +102,7 @@ export default function PropertyCard() {
               <Card sx={{ maxWidth: 345 }}>
                 <CardHeader
                   avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="Home">
+                    <Avatar sx={{ bgcolor: red[500], color: 'white'}} aria-label="Home">
                       H
                     </Avatar>
                   }

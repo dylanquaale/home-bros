@@ -16,8 +16,10 @@ import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignupForm';
 import Home from "./components/Home"
 import CustomFooter from './components/Footer';
-
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './components/Theme';
 import { StyledEngineProvider } from '@mui/material/styles';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -54,44 +56,46 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <StyledEngineProvider>
-      <ApolloProvider client={client}>
-        <body className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between">
+    <ApolloProvider client={client}>
+      <StyledEngineProvider>
+        <ThemeProvider theme={theme}>
+          <body className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
 
-          <Router>
-            <PrimarySearchAppBar />
+            <Router>
+              <PrimarySearchAppBar />
 
-            <Routes>
-              <Route
-                path="/"
-                element={<Home />} />
-              <Route
-                path="/signup"
-                element={<SignUpForm />} />
-              <Route
-                path="/login"
-                element={<LoginForm />} />
-              <Route
-                path="/saved"
-                element={<SavedProperties />}
-              />
-              <Route
-                path="*"
-                element={<PropertyCard />}
-              />
-              {/* <spaceItem></spaceItem> */}
-            </Routes>
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Home />} />
+                <Route
+                  path="/signup"
+                  element={<SignUpForm />} />
+                <Route
+                  path="/login"
+                  element={<LoginForm />} />
+                <Route
+                  path="/saved"
+                  element={<SavedProperties />}
+                />
+                <Route
+                  path="*"
+                  element={<PropertyCard />}
+                />
+                {/* <spaceItem></spaceItem> */}
+              </Routes>
 
 
-          </Router>
-        </body>
-        <footer className= 'margin'>
-        <CustomFooter />
-        </footer>
-        
+            </Router>
+          </body>
+          <footer className='margin'>
+            <CustomFooter />
+          </footer>
 
-      </ApolloProvider>
-    </StyledEngineProvider >
+        </ThemeProvider>
+
+      </StyledEngineProvider >
+    </ApolloProvider>
   );
 }
 

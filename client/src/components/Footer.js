@@ -21,7 +21,7 @@ const FooterText = styled(Typography)(({ theme }) => ({
 }));
 
 const FooterRoot = styled('footer')(({ theme }) => ({
-  marginTop:'30%',
+  marginTop:'25%',
   backgroundColor: theme.palette.primary.dark,
   padding: theme.spacing(6, 0),
 }));

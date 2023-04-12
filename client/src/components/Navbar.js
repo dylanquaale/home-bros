@@ -106,9 +106,11 @@ export default function PrimarySearchAppBar() {
               variant="h6"
               noWrap
               component="div"
+              marginLeft={'38%'}
+              // fontFamily={ 'Trebuchet MS'}
               sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-              HomeBros
+                HomeBros
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
             <div>
