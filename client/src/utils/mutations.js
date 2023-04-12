@@ -25,8 +25,8 @@ mutation addUser($username: String!, $email: String!, $password: String!){
 `
 
 export const SAVE_PROPERTY = gql `
-mutation saveProperty($propertyId: ID!){
-    saveProperty(propertyId: $propertyId) {
+mutation saveProperty($propertyData: String!){
+    saveProperty(propertyData: $propertyData) {
         _id
         username
         email
@@ -47,7 +47,7 @@ mutation saveProperty($propertyId: ID!){
 `
 
 export const REMOVE_PROPERTY = gql `
-mutation removeProperty($propertyId: ID!){
+mutation removeProperty($propertyId: String!){
     removeProperty(propertyId: $propertyId) {
         _id
         username
