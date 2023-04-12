@@ -5,7 +5,7 @@ import logo from './Assets/logo.jpg';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 
 // const FootContainer = styled(Grid)({
 //   display: 'flex',
