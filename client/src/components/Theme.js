@@ -1,12 +1,12 @@
 import { createTheme } from '@mui/material/styles';
-import HomeTheme from './Assets/HomeTheme.png';
+import HomeThemeImage from './Assets/HomeTheme.png';
 
 const theme = createTheme({
   palette: {
     background: {
-      //  default: 'gray', // Set the background color to gray
+       default: 'gray', // Set the background color to gray
       // default: '#fff',
-      backgroundImage:`url${ HomeTheme }`, // Set the image path here
+      backgroundImage:`url(${ HomeThemeImage })`, // Set the image path here
       backgroundSize: 'cover', // Stretch the image to cover the entire background
       backgroundPosition: 'center', // Center the image horizontally and vertically
     },

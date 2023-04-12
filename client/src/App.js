@@ -8,7 +8,6 @@ import {
 // import { styled } from '@mui/material/styles';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import SavedProperties from './pages/SavedProperties';
 import PropertyCard from './components/PropertyCard';
 import PrimarySearchAppBar from './components/Navbar';
@@ -20,9 +19,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from './components/Theme';
 import { StyledEngineProvider } from '@mui/material/styles';
 
-
 const httpLink = createHttpLink({
   uri: '/graphql',
+  cache: new InMemoryCache(),
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -36,7 +35,6 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
-
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
@@ -52,7 +50,6 @@ function App() {
 
             <Router>
               <PrimarySearchAppBar />
-
               <Routes>
                 <Route
                   path="/"
@@ -72,16 +69,10 @@ function App() {
                   element={<PropertyCard />}
                 />
               </Routes>
-
             </Router>
           </div>
-          {/* <div className='footer-container'>
-            <footer className='footer-content'> */}
-              <CustomFooter />
-            {/* </footer>
-          </div> */}
+          <CustomFooter />
         </ThemeProvider>
-
       </StyledEngineProvider >
     </ApolloProvider>
   );
