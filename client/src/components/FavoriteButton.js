@@ -18,8 +18,11 @@ export default function FavoriteButton({ property }) {
         },
       });
       
-    } catch (error) {console.log(error)}
+     console.log(data);
+  } catch (error) {
+    console.log(error);
   }
+}
 
   return (
     <IconButton
