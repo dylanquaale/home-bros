@@ -20,6 +20,7 @@ import Grid from '@mui/material/Grid';
 const { QUERY_PROPERTIES } = require('../utils/queries');
 const { useQuery } = require('@apollo/client');
 
+
 // const PEXELS_API_KEY = 'dTxSFdIsdAJk7qP6gPugs1z5ftld7yXjc9AoOiQVScGERh4YmLl3skpP';
 
 // export default function SimpleContainer() {
@@ -94,7 +95,7 @@ export default function PropertyCard() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-      <Header variant="h1" align="center">Listings Currently Available</Header>
+      <Header variant="h1" align="center" >Listings Currently Available</Header>
         <Grid container spacing={3}>
           {propertylist.map((property, i) => (
             <Grid key={i} item xs={12} sm={6} md={4}>
