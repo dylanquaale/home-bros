@@ -47,13 +47,13 @@ mutation saveProperty($propertyData: String!){
 `
 
 export const REMOVE_PROPERTY = gql `
-mutation removeProperty($propertyId: String!){
+mutation removeProperty($propertyId: ID!){
     removeProperty(propertyId: $propertyId) {
         _id
         username
         email
         savedProperties {
-            _id
+            propertyId
             address
             bathrooms
             bedrooms

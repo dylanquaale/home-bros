@@ -14,7 +14,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
@@ -47,25 +47,27 @@ const SavedProperties = () => {
   const { loading, data } = useQuery(QUERY_ME);
   let userData = data?.me || [];
   console.log(userData);
+
   const [removeProperty] = useMutation(REMOVE_PROPERTY);
   const [expanded, setExpanded] = React.useState(false);
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const handleRemoveProperty = async (propertyId) => {
+  const handleDeleteProperty = async (propertyId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
+    
     if (!token) {
       return false;
     }
 
     try {
-      const { users } = await removeProperty({
-        variables: { propertyId: propertyId },
+      const { data } = await removeProperty({
+        variables: {propertyId: propertyId },
       });
 
-      userData = users;
+      userData = data
       removePropertyId(propertyId);
     } catch (err) {
       console.error(err);
@@ -144,7 +146,7 @@ const SavedProperties = () => {
                         Additional Property Description
                       </Typography>
                       <br />
-                      <Button variant='contained' onClick={() => handleRemoveProperty(property.propertyId)}>
+                      <Button variant='contained' onClick={() => handleDeleteProperty(property.propertyId)}>
                         Delete this Property!
                       </Button>
                     </CardContent>

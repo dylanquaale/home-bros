@@ -19,8 +19,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from './components/Theme';
 import { StyledEngineProvider } from '@mui/material/styles';
 
+
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'https://homebros.herokuapp.com/graphql',
   cache: new InMemoryCache(),
 });
 
@@ -47,7 +48,6 @@ function App() {
       <StyledEngineProvider>
         <ThemeProvider theme={theme}>
           <div className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
-
             <Router>
               <PrimarySearchAppBar />
               <Routes>

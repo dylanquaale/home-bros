@@ -45,7 +45,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveProperty(propertyData: String!): User
-    removeProperty(propertyId: String!): User
+    removeProperty(propertyId: ID!): User
     # change to ID if not working
   }
 
