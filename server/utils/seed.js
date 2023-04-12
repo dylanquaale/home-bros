@@ -4,7 +4,7 @@ const Property = require("../models/Property")
 async function seedData() {
     // Connection URL
     const uri = "mongodb://localhost:27017/fakerproperty_db";
-    const seed_count = 2;
+    const seed_count = 4;
     let timeSeriesData = [];
     // change seed data to match your model
     for (let i = 0; i < seed_count; i++) {
