@@ -57,6 +57,7 @@ const resolvers = {
       }
       throw new AuthenticationError("No User Found");
     },
+    
     removeProperty: async (parent, { propertyId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
