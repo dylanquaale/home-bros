@@ -143,7 +143,10 @@ function PropertyCard() {
                   <Typography variant="body2" color="text.secondary"></Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                < FavoriteButton/>
+                < FavoriteButton
+                property={property}
+
+                />
                   <IconButton aria-label="share">
                   </IconButton>
                   <ExpandMore
