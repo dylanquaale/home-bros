@@ -7,10 +7,10 @@ import { useMutation } from "@apollo/client";
 export default function FavoriteButton({ property }) {
   console.log(property);
   const [isLiked, setLiked] = useState(false);
-  const [saveProperty, { error }] = useMutation(SAVE_PROPERTY);
+  const [saveProperty] = useMutation(SAVE_PROPERTY);
   async function handleClick(prevState) {
     setLiked(!prevState);
-    console.log(property._id)// need SAVE_PROPERTY mutation
+    console.log(property._id)
     try {
       const { data } = await saveProperty({
         variables: {

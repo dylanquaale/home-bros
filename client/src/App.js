@@ -9,11 +9,10 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SavedProperties from './pages/SavedProperties';
-import PropertyCard from './components/PropertyCard';
 import PrimarySearchAppBar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignupForm';
-import Home from "./components/Home"
+import Home from "./pages/Home"
 import CustomFooter from './components/Footer';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './components/Theme';
@@ -62,12 +61,10 @@ function App() {
                   element={<LoginForm />} />
                 <Route
                   path="/saved"
-                  element={<SavedProperties />}
-                />
+                  element={<SavedProperties />} />
                 <Route
                   path="*"
-                  element={<PropertyCard />}
-                />
+                  element={<Home />} />
               </Routes>
             </Router>
           </div>
