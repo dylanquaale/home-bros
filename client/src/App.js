@@ -5,6 +5,7 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+// import { styled } from '@mui/material/styles';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -34,6 +35,18 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// const spaceItem = styled(div)(({ theme }) => ({
+//   fontFamily: 'Trebuchet MS',
+//   color: theme.palette.common.white,
+//   display: 'flex',
+//   justifyContent: 'space-between',
+// }));
+
+// // .container {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
@@ -43,20 +56,20 @@ function App() {
   return (
     <StyledEngineProvider>
       <ApolloProvider client={client}>
-        <div className="flex-column justify-center align-center min-100-vh bg-primary">
+        <body className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between">
 
           <Router>
-          <PrimarySearchAppBar />
+            <PrimarySearchAppBar />
 
             <Routes>
-              <Route 
-                path="/" 
+              <Route
+                path="/"
                 element={<Home />} />
-              <Route 
-                path="/signup" 
+              <Route
+                path="/signup"
                 element={<SignUpForm />} />
-              <Route 
-                path="/login" 
+              <Route
+                path="/login"
                 element={<LoginForm />} />
               <Route
                 path="/saved"
@@ -66,15 +79,19 @@ function App() {
                 path="*"
                 element={<PropertyCard />}
               />
+              {/* <spaceItem></spaceItem> */}
             </Routes>
-            
-            <CustomFooter />
+
 
           </Router>
+        </body>
+        <footer className= 'margin'>
+        <CustomFooter />
+        </footer>
+        
 
-        </div>
       </ApolloProvider>
-    </StyledEngineProvider>
+    </StyledEngineProvider >
   );
 }
 

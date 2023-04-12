@@ -95,7 +95,7 @@ export default function PropertyCard() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-      <Header variant="h1" align="center">Listings Currently Available</Header>
+      <Header variant="h1" align="center" >Listings Currently Available</Header>
         <Grid container spacing={3}>
           {propertylist.map((property, i) => (
             <Grid key={i} item xs={12} sm={6} md={4}>
