@@ -72,7 +72,7 @@ const LoginForm = () => {
                 <LockOutlinedIcon />
               </Avatar>
               <Typography component="h1" variant="h5" justify="center">
-                Sign Up
+                Login 
               </Typography>
               <TextField
                 margin="normal"
