@@ -1,28 +1,29 @@
 import React from 'react';
-
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import { REMOVE_PROPERTY } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { removePropertyId } from '../utils/localStorage';
 
-import Grid from '@mui/material/Grid';
-import CardHeader from '@mui/material/CardHeader';
-import Avatar from '@mui/material/Avatar';
 import { red } from '@mui/material/colors';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Typography from '@mui/material/Typography';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
-import IconButton from '@mui/material/IconButton';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Collapse from '@mui/material/Collapse';
 import { styled } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import Card from '@mui/material/Card';
-import Button from '@mui/material/Button';
+import {
+  Grid,
+  CardHeader,
+  Avatar,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Typography,
+  IconButton,
+  Collapse,
+  CssBaseline,
+  Container,
+  Card,
+  Button,
+} from '@mui/material';
+
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FavoriteButton from '../components/FavoriteButton';
 
 const Header = styled(Typography)`
