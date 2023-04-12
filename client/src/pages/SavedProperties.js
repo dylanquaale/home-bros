@@ -6,7 +6,6 @@ import { REMOVE_PROPERTY } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { removePropertyId } from '../utils/localStorage';
 
-
 import Grid from '@mui/material/Grid';
 import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
@@ -15,7 +14,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
@@ -24,6 +23,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
+import FavoriteButton from '../components/FavoriteButton';
 
 const Header = styled(Typography)`
   font-size: 36px;
@@ -42,7 +42,6 @@ const ExpandMore = styled((props) => {
     duration: theme.transitions.duration.shortest,
   }),
 }));
-
 
 const SavedProperties = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -93,8 +92,7 @@ const SavedProperties = () => {
                 <Card sx={{ maxWidth: 345 }}>
                   <CardHeader
                     avatar={
-                      <Avatar sx={{ bgcolor: red[500] }} aria-label="Home">
-                        
+                      <Avatar  sx={{ bgcolor: red[500] }} aria-label="Home">
                       </Avatar>
                     }
                     title={property.address}
@@ -109,9 +107,7 @@ const SavedProperties = () => {
                     <Typography variant="body2" color="text.secondary"></Typography>
                   </CardContent>
                   <CardActions disableSpacing>
-                    <IconButton  aria-label="add to favorites"> 
-                      <FavoriteIcon sx={{ color: red[500] }}/>
-                    </IconButton>
+                    < FavoriteButton/>
                     <IconButton aria-label="share">
                     </IconButton>
                     <ExpandMore

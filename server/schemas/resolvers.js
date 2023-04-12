@@ -13,7 +13,7 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id }).populate('savedProperties');
         return userData;
       }
-      throw new AuthenticationError("You Need Too Login Wisher");
+      throw new AuthenticationError("You Need Too Login");
     },
 
     properties: async () => {

@@ -12,7 +12,7 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
@@ -20,6 +20,7 @@ import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import { PEXELS_API_KEY } from '../config';
 
+import FavoriteButton from '../components/FavoriteButton';
 const { QUERY_PROPERTIES } = require('../utils/queries');
 const { useQuery } = require('@apollo/client');
 
@@ -142,9 +143,7 @@ function PropertyCard() {
                   <Typography variant="body2" color="text.secondary"></Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                  <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                  </IconButton>
+                < FavoriteButton/>
                   <IconButton aria-label="share">
                   </IconButton>
                   <ExpandMore
