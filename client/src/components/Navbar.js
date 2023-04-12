@@ -41,6 +41,10 @@ export default function PrimarySearchAppBar() {
     navigate("/saved");
     handleMenuClose();
   };
+  const handleSaved = () => {
+    navigate("/login");
+    
+  };
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -59,7 +63,15 @@ export default function PrimarySearchAppBar() {
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
-        <MenuItem onClick={handleProfileClick}>My saved Properties</MenuItem>
+        {Auth.loggedIn() ? (
+              <div>
+                <MenuItem onClick={handleProfileClick}>My saved Properties</MenuItem>
+              </div>
+            ) : (
+              <div>
+                <MenuItem onClick={handleSaved}>My saved Properties</MenuItem>
+              </div>
+            )}
       </Menu>
     );
 
