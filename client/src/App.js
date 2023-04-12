@@ -5,18 +5,17 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-// import { styled } from '@mui/material/styles';
-import { setContext } from '@apollo/client/link/context';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { setContext } from '@apollo/client/link/context';
 import SavedProperties from './pages/SavedProperties';
 import PrimarySearchAppBar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignupForm';
 import Home from "./pages/Home"
 import CustomFooter from './components/Footer';
-import { ThemeProvider } from '@mui/material/styles';
 import theme from './components/Theme';
-import { StyledEngineProvider } from '@mui/material/styles';
 
 const httpLink = createHttpLink({
   uri: '/graphql',

@@ -1,10 +1,9 @@
-// see SignupForm.js for comments
 import React, { useState } from "react";
 import { Form, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Auth from "../utils/auth";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
