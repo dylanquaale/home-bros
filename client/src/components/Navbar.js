@@ -166,9 +166,11 @@ export default function PrimarySearchAppBar() {
                   </Button>
                 </Link>
                 {/* </a> */}
-                <a href="/login">
+                {/* <a href="/login"> */}
+                <Link to="/login">
                   <Button variant="contained">Login</Button>
-                </a>
+                  </Link>
+                {/* </a> */}
               </div>
             )}
           </div>
