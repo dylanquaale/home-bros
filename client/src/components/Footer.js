@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 // import { createTheme, ThemeProvider } from '@mui/material/styles';
-import logo from './Assets/logo.jpg';
+import logo from '../Assets/logo.jpg';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';

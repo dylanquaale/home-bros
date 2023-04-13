@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import HomeThemeImage from './Assets/HomeTheme.png';
+import HomeThemeImage from '../Assets/HomeTheme.png';
 
 const theme = createTheme({
   palette: {

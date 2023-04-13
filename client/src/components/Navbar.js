@@ -12,7 +12,7 @@ import Auth from "../utils/auth";
 import { Button } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import HomeBros from "./Assets/HomeBros.jpg";
+import HomeBros from "../Assets/HomeBros.jpg";
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -73,7 +73,7 @@ export default function PrimarySearchAppBar() {
     >
       {Auth.loggedIn() ? (
         <div>
-          <MenuItem onClick={handleProfileClick}>My saved Properties</MenuItem>
+          <MenuItem component={Link} to="/saved">My saved Properties</MenuItem>
         </div>
       ) : (
         <div>
@@ -139,16 +139,6 @@ export default function PrimarySearchAppBar() {
             src={HomeBros}
             alt="HomeBros Logo"
           />
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            marginLeft={'38%'}
-            // fontFamily={ 'Trebuchet MS'}
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            HomeBros
-          </Typography> */}
           <Box sx={{ flexGrow: 1 }} />
           <div>
             {Auth.loggedIn() ? (
@@ -159,18 +149,14 @@ export default function PrimarySearchAppBar() {
               </div>
             ) : (
               <div>
-                {/* <a href="/signup"> */}
                 <Link to="/signup">
                   <Button component="" variant="contained">
                     Signup
                   </Button>
                 </Link>
-                {/* </a> */}
-                {/* <a href="/login"> */}
                 <Link to="/login">
                   <Button variant="contained">Login</Button>
                   </Link>
-                {/* </a> */}
               </div>
             )}
           </div>

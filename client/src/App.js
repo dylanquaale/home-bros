@@ -9,10 +9,10 @@ import {
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import { setContext } from "@apollo/client/link/context";
-import SavedProperties from "./pages/SavedProperties";
+import SavedProperties from "./pages/Saved";
 import PrimarySearchAppBar from "./components/Navbar";
-import LoginForm from "./pages/LoginForm";
-import SignUpForm from "./pages/SignupForm";
+import LoginForm from "./pages/Login";
+import SignUpForm from "./pages/Signup";
 import Home from "./pages/Home";
 import CustomFooter from "./components/Footer";
 import theme from "./components/Theme";
