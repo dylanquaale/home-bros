@@ -18,7 +18,7 @@ const userSchema = new Schema(
       required: true,
     },
      savedProperties: [{
-      type: Schema.Types.ObjectID,
+      type: Schema.Types.ObjectId,
       ref: "Property"}],
   },
     {

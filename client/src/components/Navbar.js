@@ -10,9 +10,9 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Auth from "../utils/auth";
 import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { styled } from '@mui/material/styles';
-import HomeBros from './Assets/HomeBros.jpg';
+import { useNavigate, Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
+import HomeBros from "./Assets/HomeBros.jpg";
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -45,44 +45,43 @@ export default function PrimarySearchAppBar() {
   };
   const handleSaved = () => {
     navigate("/login");
-    
   };
 
-  const HomeBrosImage = styled('img')(({ theme }) => ({
-    padding: '5px',
-    borderRadius: '50px',
+  const HomeBrosImage = styled("img")(({ theme }) => ({
+    padding: "5px",
+    borderRadius: "50px",
     width: 95,
     marginRight: theme.spacing(1),
   }));
 
-    const menuId = 'primary-search-account-menu';
-    const renderMenu = (
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        id={menuId}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={isMenuOpen}
-        onClose={handleMenuClose}
-      >
-        {Auth.loggedIn() ? (
-              <div>
-                <MenuItem onClick={handleProfileClick}>My saved Properties</MenuItem>
-              </div>
-            ) : (
-              <div>
-                <MenuItem onClick={handleSaved}>My saved Properties</MenuItem>
-              </div>
-            )}
-      </Menu>
-    );
+  const menuId = "primary-search-account-menu";
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      {Auth.loggedIn() ? (
+        <div>
+          <MenuItem onClick={handleProfileClick}>My saved Properties</MenuItem>
+        </div>
+      ) : (
+        <div>
+          <MenuItem onClick={handleSaved}>My saved Properties</MenuItem>
+        </div>
+      )}
+    </Menu>
+  );
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -124,12 +123,20 @@ export default function PrimarySearchAppBar() {
             <Button variant="contained">Home</Button>
           </a>
           <HomeBrosImage
-           variant="h6"
-           noWrap
-           component="div"
-            marginLeft={'50%'}
-            sx={{ display: { s: 'none', md: 'block', marginLeft: '40%', width: '100px' } }}
-            img src={HomeBros}
+            variant="h6"
+            noWrap
+            component="div"
+            marginLeft={"50%"}
+            sx={{
+              display: {
+                s: "none",
+                md: "block",
+                marginLeft: "40%",
+                width: "100px",
+              },
+            }}
+            img
+            src={HomeBros}
             alt="HomeBros Logo"
           />
           {/* <Typography
@@ -152,16 +159,20 @@ export default function PrimarySearchAppBar() {
               </div>
             ) : (
               <div>
-                <a href="/signup">
-                  <Button variant="contained">Signup</Button>
-                </a>
+                {/* <a href="/signup"> */}
+                <Link to="/signup">
+                  <Button component="" variant="contained">
+                    Signup
+                  </Button>
+                </Link>
+                {/* </a> */}
                 <a href="/login">
                   <Button variant="contained">Login</Button>
                 </a>
               </div>
             )}
           </div>
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
               edge="end"
@@ -174,7 +185,7 @@ export default function PrimarySearchAppBar() {
               <AccountCircle />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="show more"
