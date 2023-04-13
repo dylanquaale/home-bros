@@ -16,6 +16,8 @@ import SignUpForm from "./pages/Signup";
 import Home from "./pages/Home";
 import CustomFooter from "./components/Footer";
 import theme from "./components/Theme";
+import HomeThemeImage from './Assets/HomeTheme.png';
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -44,7 +46,7 @@ function App() {
     <ApolloProvider client={client}>
       <StyledEngineProvider>
         <ThemeProvider theme={theme}>
-          <div className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
+          <div style={{backgroundImage:`url(${HomeThemeImage}`}} className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
             
             <Router>
             <PrimarySearchAppBar />
