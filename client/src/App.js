@@ -45,7 +45,6 @@ function App() {
       <StyledEngineProvider>
         <ThemeProvider theme={theme}>
           <div className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
-
             <Router>
               <PrimarySearchAppBar />
               <Routes>
@@ -64,6 +63,7 @@ function App() {
                 <Route
                   path="*"
                   element={<Home />} />
+                  {/* redirects to Home Page If wrong parameters are written */}
               </Routes>
             </Router>
           </div>

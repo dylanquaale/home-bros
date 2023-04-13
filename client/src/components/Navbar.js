@@ -3,7 +3,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-// import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -132,16 +131,6 @@ export default function PrimarySearchAppBar() {
             img src={HomeBros}
             alt="HomeBros Logo"
           />
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            marginLeft={'38%'}
-            // fontFamily={ 'Trebuchet MS'}
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            HomeBros
-          </Typography> */}
           <Box sx={{ flexGrow: 1 }} />
           <div>
             {Auth.loggedIn() ? (

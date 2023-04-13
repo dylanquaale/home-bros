@@ -17,7 +17,7 @@ import {
   Typography,
   IconButton,
   Collapse,
-  CssBaseline,
+  // CssBaseline,
   Container,
   Card,
   Button,
@@ -78,8 +78,8 @@ const SavedProperties = () => {
   }
 
   return (
-    <React.Fragment>
-      <CssBaseline />
+    <>
+      {/* <CssBaseline /> */}
       <Container maxWidth="lg">
         <Header className="pt-5">
           {userData.savedProperties.length
@@ -93,7 +93,7 @@ const SavedProperties = () => {
                 <Card sx={{ maxWidth: 345 }}>
                   <CardHeader
                     avatar={
-                      <Avatar  sx={{ bgcolor: red[500] }} aria-label="Home">
+                      <Avatar sx={{ bgcolor: red[500] }} aria-label="Home">
                       </Avatar>
                     }
                     title={property.address}
@@ -102,21 +102,17 @@ const SavedProperties = () => {
                     component="img"
                     height="194"
                     image={property.image}
-                    alt="faker.address.streetAddress()"
-                  />
+                    alt="faker.address.streetAddress()" />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary"></Typography>
                   </CardContent>
                   <CardActions disableSpacing>
-                    < FavoriteButton/>
-                    <IconButton aria-label="share">
-                    </IconButton>
+                    < FavoriteButton />
                     <ExpandMore
                       expand={expanded}
                       onClick={handleExpandClick}
                       aria-expanded={expanded}
-                      aria-label="show more"
-                    >
+                      aria-label="show more">
                       <ExpandMoreIcon />
                     </ExpandMore>
                   </CardActions>
@@ -127,6 +123,7 @@ const SavedProperties = () => {
                         {property.address}
                         <br />
                         {property.city},
+
                         {property.state}
                         <br />
                         {property.zipcode}
@@ -138,8 +135,6 @@ const SavedProperties = () => {
                         Bathrooms: {property.bathrooms}
                         <br />
                         Sqft: {property.squareFeet}
-                      </Typography>
-                      <Typography paragraph>
                       </Typography>
                       <Typography>
                         Additional Property Description
@@ -156,7 +151,7 @@ const SavedProperties = () => {
           })}
         </Grid>
       </Container>
-    </React.Fragment>
+    </ >
   );
 };
 
