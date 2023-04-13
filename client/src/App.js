@@ -11,8 +11,8 @@ import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { setContext } from '@apollo/client/link/context';
 import SavedProperties from './pages/SavedProperties';
 import PrimarySearchAppBar from './components/Navbar';
-import LoginForm from './components/LoginForm';
-import SignUpForm from './components/SignupForm';
+import LoginForm from './pages/LoginForm';
+import SignUpForm from './pages/SignupForm';
 import Home from "./pages/Home"
 import CustomFooter from './components/Footer';
 import theme from './components/Theme';
