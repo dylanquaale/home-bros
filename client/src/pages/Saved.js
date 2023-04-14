@@ -1,9 +1,6 @@
 import React from 'react';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
-import { REMOVE_PROPERTY } from '../utils/mutations';
-import Auth from '../utils/auth';
-import { removePropertyId } from '../utils/localStorage';
 
 import { red } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
@@ -20,11 +17,12 @@ import {
   // CssBaseline,
   Container,
   Card,
-  Button,
+  // Button,
 } from '@mui/material';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FavoriteButton from '../components/FavoriteButton';
+import DeleteButton from '../components/DeleteButton';
 
 const Header = styled(Typography)`
   font-size: 36px;
@@ -48,29 +46,9 @@ const SavedProperties = () => {
   const { loading, data } = useQuery(QUERY_ME);
   let userData = data?.me || [];
   console.log(userData);
-  const [removeProperty] = useMutation(REMOVE_PROPERTY);
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  };
-
-  const handleRemoveProperty = async (propertyId) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-    try {
-      const { users } = await removeProperty({
-        variables: { propertyId: propertyId },
-      });
-
-      userData = users;
-      removePropertyId(propertyId);
-    } catch (err) {
-      console.error(err);
-    }
   };
 
   if (loading) {
@@ -140,9 +118,7 @@ const SavedProperties = () => {
                         Additional Property Description
                       </Typography>
                       <br />
-                      <Button variant='contained' onClick={() => handleRemoveProperty(property.propertyId)}>
-                        Delete this Property!
-                      </Button>
+                      <DeleteButton property={property} />
                     </CardContent>
                   </Collapse>
                 </Card>

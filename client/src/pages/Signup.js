@@ -57,12 +57,11 @@ const SignupForm = () => {
 
   const theme = createTheme();
 
-
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <Box
+        <CssBaseline />
+        <Box
           sx={{
             marginTop: 8,
             display: 'flex',
@@ -78,75 +77,72 @@ const SignupForm = () => {
           </Typography>
 
           <TextField
-          margin="normal"
-          fullWidth
-          id="username"
-          label="Username"
-          name="username"
-          autoComplete="username"
-          autoFocus
-          onChange={handleInputChange}
+            margin="normal"
+            fullWidth
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
+            autoFocus
+            onChange={handleInputChange}
             value={userFormData.username}
             required
-        />
-        <TextField
-              margin="normal"
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              onChange={handleInputChange}
+          />
+          <TextField
+            margin="normal"
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onChange={handleInputChange}
             value={userFormData.email}
             required
-            />
-            <TextField
-              margin="normal"
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              onChange={handleInputChange}
+          />
+          <TextField
+            margin="normal"
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={handleInputChange}
             value={userFormData.password}
             required
-            />
+          />
 
 
           {/* <Box component="form" type='submit' noValidate sx={{ mt: 1 }}> */}
-      {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        {/* show alert if server response is bad */}
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger' {...error}>
-          Something went wrong with your signup!
-        </Alert>
+          {/* This is needed for the validation functionality above */}
+          <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+            {/* show alert if server response is bad */}
+            <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger' {...error}>
+              Something went wrong with your signup!
+            </Alert>
 
-
-
-        <Button
-disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+            <Button
+              disabled={!(userFormData.username && userFormData.email && userFormData.password)}
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-                Sign Up
+              Sign Up
             </Button>
 
-    
-        {/* <Button
+            {/* <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
           Submit
         </Button> */}
-      </Form>
-      </Box>
-      {/* </Box> */}
+          </Form>
+        </Box>
+        {/* </Box> */}
       </Container>
-      </ThemeProvider>
+    </ThemeProvider>
   );
 };
 

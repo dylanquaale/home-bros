@@ -18,10 +18,10 @@ const typeDefs = gql`
     city: String
     state: String
     zipcode: String
-    price: String
-    bedrooms: String
-    bathrooms: String
-    squareFeet: String
+    price: Float
+    bedrooms: Int
+    bathrooms: Float
+    squareFeet: Int
     image: String
   }
   type Query {
@@ -32,9 +32,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveProperty(propertyData: String!): User
-    removeProperty(propertyId: String!, id:String): User
+    removeProperty(propertyId: String!): User
   }
-
 `;
 
 module.exports = typeDefs;

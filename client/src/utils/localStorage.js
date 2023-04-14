@@ -2,9 +2,9 @@ export const getSavedPropertyIds = () => {
     const savedPropertyIds = localStorage.getItem('saved_properties')
         ? JSON.parse(localStorage.getItem('saved_properties'))
         : [];
-    
+
     return savedPropertyIds;
-    };
+};
 
 export const savePropertyIds = (propertyIdArr) => {
     if (propertyIdArr.length) {
