@@ -67,3 +67,33 @@ mutation removeProperty($propertyId: String!){
     }
 }
 `
+
+export const UPDATE_USER_EMAIL = gql`
+mutation updateUserEmail($email: String!){
+    updateUserEmail(email: $email) {
+        _id
+        username
+        email
+    }
+}
+`
+
+export const UPDATE_USER_USERNAME = gql`
+mutation updateUserUsername($username: String!){
+    updateUserUsername(username: $username) {
+        _id
+        username
+        email
+    }
+}
+`
+
+export const UPDATE_USER_PASSWORD = gql`
+mutation updateUserPassword($password: String!){
+    updateUserPassword(password: $password) {
+        _id
+        username
+        email
+    }
+}
+`
