@@ -51,7 +51,7 @@ function App() {
         <GlobalStyles />
           {/* <div style={{ backgroundImage: `url(${HomeThemeImage}` }} className="root"> */}
             <Router>
-              <PrimarySearchAppBar />
+              <PrimarySearchAppBar  />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={<SignUpForm />} />
