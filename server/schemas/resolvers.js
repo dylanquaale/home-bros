@@ -15,12 +15,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-
     properties: async () => {
       // const propertyData = await Property.find();
       return Property.find({});
     },
-
   },
 
   Mutation: {
@@ -46,6 +44,42 @@ const resolvers = {
 
       return { token, user };
     },
+
+
+    updateUserEmail: async (parent, { email }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { email },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    updateUserUsername: async (parent, { username }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { username },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    updateUserPassword: async (parent, { password }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id);
+        user.set({ password }); // this will automatically hash the password and save it in the database
+        const updatedUser = await user.save();
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
     saveProperty: async (parent, { propertyData }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(

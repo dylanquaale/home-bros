@@ -73,10 +73,12 @@ export default function PrimarySearchAppBar() {
       {Auth.loggedIn() ? (
         <div>
           <MenuItem component={Link} to="/saved">My saved Properties</MenuItem>
+          <MenuItem component={Link} to="/Profile">Profile</MenuItem>
         </div>
       ) : (
         <div>
           <MenuItem onClick={handleSaved}>My saved Properties</MenuItem>
+          <MenuItem onClick={handleSaved}>Profile</MenuItem>
         </div>
       )}
     </Menu>

@@ -17,7 +17,8 @@ import SignUpForm from "./pages/Signup";
 import Home from "./pages/Home";
 import CustomFooter from "./components/Footer";
 import theme from "./components/Theme";
-
+import HomeThemeImage from './Assets/HomeTheme.png';
+import Profile from "./pages/Profile";
 
 
 const httpLink = createHttpLink({
@@ -56,6 +57,7 @@ function App() {
                 <Route path="/signup" element={<SignUpForm />} />
                 <Route path="/login" element={<LoginForm />} />
                 <Route path="/saved" element={<SavedProperties />} />
+                <Route path="/Profile" element={<Profile />} />
                 <Route path="*" element={<Home />} />
               </Routes>
             </Router>

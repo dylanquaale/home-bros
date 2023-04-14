@@ -6,6 +6,7 @@ query me {
       _id
       username
       email
+      password
       savedProperties {
         _id
         address
@@ -21,6 +22,7 @@ query me {
     }
   }
 `
+
 export const QUERY_PROPERTIES = gql`
 query properties {
     properties {
