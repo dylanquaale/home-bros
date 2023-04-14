@@ -117,9 +117,9 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
+    <Box sx={{ flexGrow: 1 }} >
+      <AppBar position="static"  >
+        <Toolbar sx={{ flexWrap:'wrap' }} >
           <a href="/">
             <Button variant="contained">Home</Button>
           </a>
@@ -140,7 +140,7 @@ export default function PrimarySearchAppBar() {
             src={HomeBros}
             alt="HomeBros Logo"
           />
-          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1 }}  />
           <div>
             {Auth.loggedIn() ? (
               <div>
