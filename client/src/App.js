@@ -1,4 +1,5 @@
 import React from "react";
+import GlobalStyles from "./components/GlobalStyles";
 import {
   ApolloClient,
   InMemoryCache,
@@ -47,7 +48,8 @@ function App() {
     <ApolloProvider client={client}>
       <StyledEngineProvider>
         <ThemeProvider theme={theme}>
-          <div style={{ backgroundImage: `url(${HomeThemeImage}` }} className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
+        <GlobalStyles />
+          {/* <div style={{ backgroundImage: `url(${HomeThemeImage}` }} className="root"> */}
             <Router>
               <PrimarySearchAppBar />
               <Routes>
@@ -59,7 +61,7 @@ function App() {
                 <Route path="*" element={<Home />} />
               </Routes>
             </Router>
-          </div>
+          {/* </div> */}
           <CustomFooter />
         </ThemeProvider>
       </StyledEngineProvider>
