@@ -46,10 +46,9 @@ function App() {
     <ApolloProvider client={client}>
       <StyledEngineProvider>
         <ThemeProvider theme={theme}>
-          <div style={{backgroundImage:`url(${HomeThemeImage}`}} className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
-            
+          <div style={{ backgroundImage: `url(${HomeThemeImage}` }} className="flex-column justify-center align-center min-100-vh bg-primary justify-content: space-between background">
             <Router>
-            <PrimarySearchAppBar />
+              <PrimarySearchAppBar />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={<SignUpForm />} />

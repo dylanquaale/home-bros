@@ -1,9 +1,6 @@
 import React from 'react';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
-import { REMOVE_PROPERTY } from '../utils/mutations';
-import Auth from '../utils/auth';
-import { removePropertyId } from '../utils/localStorage';
 
 import { red } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
@@ -17,14 +14,15 @@ import {
   Typography,
   IconButton,
   Collapse,
-  CssBaseline,
+  // CssBaseline,
   Container,
   Card,
-  Button,
+  // Button,
 } from '@mui/material';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FavoriteButton from '../components/FavoriteButton';
+import DeleteButton from '../components/DeleteButton';
 
 const Header = styled(Typography)`
   font-size: 36px;
@@ -48,29 +46,9 @@ const SavedProperties = () => {
   const { loading, data } = useQuery(QUERY_ME);
   let userData = data?.me || [];
   console.log(userData);
-  const [removeProperty] = useMutation(REMOVE_PROPERTY);
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  };
-
-  const handleRemoveProperty = async (propertyId) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-    try {
-      const { users } = await removeProperty({
-        variables: { propertyId: propertyId },
-      });
-
-      userData = users;
-      removePropertyId(propertyId);
-    } catch (err) {
-      console.error(err);
-    }
   };
 
   if (loading) {
@@ -78,8 +56,8 @@ const SavedProperties = () => {
   }
 
   return (
-    <React.Fragment>
-      <CssBaseline />
+    <>
+      {/* <CssBaseline /> */}
       <Container maxWidth="lg">
         <Header className="pt-5">
           {userData.savedProperties.length
@@ -93,7 +71,7 @@ const SavedProperties = () => {
                 <Card sx={{ maxWidth: 345 }}>
                   <CardHeader
                     avatar={
-                      <Avatar  sx={{ bgcolor: red[500] }} aria-label="Home">
+                      <Avatar sx={{ bgcolor: red[500] }} aria-label="Home">
                       </Avatar>
                     }
                     title={property.address}
@@ -102,21 +80,17 @@ const SavedProperties = () => {
                     component="img"
                     height="194"
                     image={property.image}
-                    alt="faker.address.streetAddress()"
-                  />
+                    alt="faker.address.streetAddress()" />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary"></Typography>
                   </CardContent>
                   <CardActions disableSpacing>
-                    < FavoriteButton/>
-                    <IconButton aria-label="share">
-                    </IconButton>
+                    < FavoriteButton />
                     <ExpandMore
                       expand={expanded}
                       onClick={handleExpandClick}
                       aria-expanded={expanded}
-                      aria-label="show more"
-                    >
+                      aria-label="show more">
                       <ExpandMoreIcon />
                     </ExpandMore>
                   </CardActions>
@@ -127,6 +101,7 @@ const SavedProperties = () => {
                         {property.address}
                         <br />
                         {property.city},
+
                         {property.state}
                         <br />
                         {property.zipcode}
@@ -139,15 +114,11 @@ const SavedProperties = () => {
                         <br />
                         Sqft: {property.squareFeet}
                       </Typography>
-                      <Typography paragraph>
-                      </Typography>
                       <Typography>
                         Additional Property Description
                       </Typography>
                       <br />
-                      <Button variant='contained' onClick={() => handleRemoveProperty(property.propertyId)}>
-                        Delete this Property!
-                      </Button>
+                      <DeleteButton property={property} />
                     </CardContent>
                   </Collapse>
                 </Card>
@@ -156,7 +127,7 @@ const SavedProperties = () => {
           })}
         </Grid>
       </Container>
-    </React.Fragment>
+    </ >
   );
 };
 

@@ -1,5 +1,3 @@
-//idk how to refactor this in with the new code
-
 import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -12,9 +10,8 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import CssBaseline from '@mui/material/CssBaseline';
+// import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
@@ -23,47 +20,6 @@ import { PEXELS_API_KEY } from '../config';
 import FavoriteButton from '../components/FavoriteButton';
 const { QUERY_PROPERTIES } = require('../utils/queries');
 const { useQuery } = require('@apollo/client');
-
-// export default function SimpleContainer() {
-//     const [images, setImages] = React.useState([]);
-
-//     React.useEffect(() => {
-//       const fetchImages = async () => {
-//         try {
-//           const response = await axios.get('https://api.pexels.com/v1/search', {
-//             headers: {
-//               Authorization: PEXELS_API_KEY,
-//             },
-//             params: {
-//               query: 'house',
-//               per_page: 6,
-//             },
-//           });
-
-//           setImages(response.data.photos);
-//         } catch (error) {
-//           console.error('Error fetching images:', error);
-//         }
-//       };
-
-//       fetchImages();
-//     }, []);
-
-//   return (
-//     <React.Fragment>
-//       <CssBaseline />
-//       <Container maxWidth="lg">
-//         <Grid container spacing={3}>
-//           {images.map((image, index) => (
-//             <Grid key={index} item xs={12} sm={6} md={4}>
-//               <HomeReviewCardUno imageUrl={image.src.medium} />
-//             </Grid>
-//           ))}
-//         </Grid>
-//       </Container>
-//     </React.Fragment>
-//   );
-// }
 
 const Header = styled(Typography)`
   font-size: 36px;
@@ -116,9 +72,13 @@ function PropertyCard() {
     setExpanded(!expanded);
   };
 
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
+
   return (
-    <React.Fragment>
-      <CssBaseline />
+    <>
+      {/* <CssBaseline /> */}
       <Container maxWidth="lg">
         <Header variant="h1" align="center" >Listings Currently Available</Header>
         <Grid container spacing={3}>
@@ -144,11 +104,7 @@ function PropertyCard() {
                 </CardContent>
                 <CardActions disableSpacing>
                 < FavoriteButton
-                property={property}
-
-                />
-                  <IconButton aria-label="share">
-                  </IconButton>
+                property={property} />
                   <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}
@@ -177,8 +133,6 @@ function PropertyCard() {
                       <br />
                       Sqft: {property.squareFeet}
                     </Typography>
-                    <Typography paragraph>
-                    </Typography>
                     <Typography>
                       Additional Property Description
                     </Typography>
@@ -189,7 +143,7 @@ function PropertyCard() {
           ))}
         </Grid>
       </Container>
-    </React.Fragment>
+    </ >
   );
 }
 

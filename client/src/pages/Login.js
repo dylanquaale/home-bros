@@ -55,83 +55,78 @@ const LoginForm = () => {
   const theme = createTheme();
 
   return (
-    
-      <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <Box
-            sx={{
-              marginTop: 8,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            
-              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                <LockOutlinedIcon />
-              </Avatar>
-              <Typography component="h1" variant="h5" justify="center">
-                Login
-              </Typography>
-              <TextField
-                margin="normal"
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                onChange={handleInputChange}
-                value={userFormData.email}
-                required
-              />
-            
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
+          </Avatar>
 
-            
-              <TextField
-                margin="normal"
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={handleInputChange}
-                value={userFormData.password}
-                required
-              />
-            
-            <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-              <Alert
-                dismissible
-                onClose={() => setShowAlert(false)}
-                show={showAlert}
-                variant="danger"
-                {...error}
-              >
-                Something went wrong with your login!
-              </Alert>
-              
-              <Button
-                disabled={
-                  !(
-                    userFormData.email && 
-                    userFormData.password
-                    )
-                  }
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Submit
-              </Button>
-            </Form>
-          </Box>
-        </Container>
-      </ThemeProvider>
-    
+          <Typography component="h1" variant="h5" justify="center">
+            Login
+          </Typography>
+          <TextField
+            margin="normal"
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
+          />
+          <TextField
+            margin="normal"
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+          <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+            <Alert
+              dismissible
+              onClose={() => setShowAlert(false)}
+              show={showAlert}
+              variant="danger"
+              {...error}
+            >
+              Something went wrong with your login!
+            </Alert>
+
+            <Button
+              disabled={
+                !(
+                  userFormData.email &&
+                  userFormData.password
+                )
+              }
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Submit
+            </Button>
+          </Form>
+        </Box>
+      </Container>
+    </ThemeProvider>
+
   );
 };
 

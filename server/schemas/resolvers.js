@@ -13,7 +13,7 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id }).populate('savedProperties');
         return userData;
       }
-      throw new AuthenticationError("You Need Too Login");
+      throw new AuthenticationError("You need to be logged in!");
     },
 
     properties: async () => {
@@ -28,13 +28,13 @@ const resolvers = {
       const user = await User.findOne({ email });
       // check if user exists with email and credentials
       if (!user) {
-        throw new AuthenticationError("You Wish");
+        throw new AuthenticationError("No user found with this email address");
       }
       const correctPassword = await user.isCorrectPassword(password);
 
       // check password
       if (!correctPassword) {
-        throw new AuthenticationError("You Wish");
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(user);
@@ -50,24 +50,24 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedProperties: new ObjectId(propertyData)} },
+          { $addToSet: { savedProperties: new ObjectId(propertyData) } },
           { new: true, populate: 'savedProperties' }
         );
         return updatedUser;
       }
-      throw new AuthenticationError("No User Found");
+      throw new AuthenticationError("You need to be logged in!");
     },
-    
+
     removeProperty: async (parent, { propertyId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedProperties:  propertyId  } },
-          { new: true }
+          { $pull: { savedProperties: propertyId } },
+          { new: true, populate: 'savedProperties' }
         );
         return updatedUser;
       }
-      throw new AuthenticationError("No User Found");
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
