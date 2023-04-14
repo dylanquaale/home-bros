@@ -41,8 +41,11 @@ SCREENSHOTS
 - Nicholas Mamberger https://github.com/NickHM05
 - Krister Myrlønn    https://github.com/kristermyr
 - Dylan Quaale       https://github.com/dylanquaale
+- Salahuddin Imdad   https://github.com/Sal8298
 - Instructor Charlie Werness
 - TA Emma Olson
+- TA Chris Stallcup
+- Tutor Matthew Calimbas
 
 ## License
 
