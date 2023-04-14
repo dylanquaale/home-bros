@@ -39,11 +39,15 @@ export default function PrimarySearchAppBar() {
   };
 
   const handleProfileClick = () => {
-    navigate("/saved");
+    navigate("/profile");
     handleMenuClose();
   };
-  const handleSaved = () => {
+  const handleNotLoggedIn = () => {
     navigate("/login");
+  };
+  const handleSavedClick = () => {
+    navigate("/saved");
+    handleMenuClose();
   };
 
   const HomeBrosImage = styled("img")(({ theme }) => ({
@@ -72,13 +76,13 @@ export default function PrimarySearchAppBar() {
     >
       {Auth.loggedIn() ? (
         <div>
-          <MenuItem component={Link} to="/saved">My saved Properties</MenuItem>
-          <MenuItem component={Link} to="/Profile">Profile</MenuItem>
+          <MenuItem component={Link} to="/profile">Profile</MenuItem>
+          <MenuItem component={Link} to="/saved">My Saved Properties</MenuItem>
         </div>
       ) : (
         <div>
-          <MenuItem onClick={handleSaved}>My saved Properties</MenuItem>
-          <MenuItem onClick={handleSaved}>Profile</MenuItem>
+          <MenuItem onClick={handleNotLoggedIn}>Profile</MenuItem>
+          <MenuItem onClick={handleNotLoggedIn}>My Saved Properties</MenuItem>
         </div>
       )}
     </Menu>
@@ -112,6 +116,18 @@ export default function PrimarySearchAppBar() {
           <AccountCircle />
         </IconButton>
         Profile
+      </MenuItem>
+      <MenuItem onClick={handleSavedClick}>
+        <IconButton
+          size="large"
+          aria-label="user's saved properties"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+        My Saved Properties
       </MenuItem>
     </Menu>
   );
