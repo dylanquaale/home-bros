@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const Property = require("../models/Property")
 async function seedData() {
     // Connection URL
-    const uri = "mongodb://localhost:27017/fakerproperty_db";
+    const uri = "mongodb+srv://dylanquaale:Atlas33@cluster0.qyjaiep.mongodb.net/fakerproperty_db?retryWrites=true&w=majority;"
     const seed_count = 4;
     let timeSeriesData = [];
     // change seed data to match your model
