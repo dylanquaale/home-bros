@@ -120,7 +120,7 @@ const LoginForm = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Submit
+              Login
             </Button>
           </Form>
         </Box>
