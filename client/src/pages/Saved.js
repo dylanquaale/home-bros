@@ -17,11 +17,10 @@ import {
   // CssBaseline,
   Container,
   Card,
-  // Button,
 } from '@mui/material';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import FavoriteButton from '../components/FavoriteButton';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteButton from '../components/DeleteButton';
 
 const Header = styled(Typography)`
@@ -85,7 +84,7 @@ const SavedProperties = () => {
                     <Typography variant="body2" color="text.secondary"></Typography>
                   </CardContent>
                   <CardActions disableSpacing>
-                    < FavoriteButton />
+                    <FavoriteIcon sx={{ color: red[500] }} />
                     <ExpandMore
                       expand={expanded}
                       onClick={handleExpandClick}
