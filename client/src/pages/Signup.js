@@ -127,7 +127,7 @@ const SignupForm = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 55, backgroundColor:'purple'}}
             >
               Sign Up
             </Button>

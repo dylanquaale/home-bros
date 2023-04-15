@@ -77,16 +77,11 @@ const theme = createTheme();
           </Container>
           <br />
 
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" mb="120px">
             Current Email:
             <br /> {email}
           </Typography>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-
+        
           <form onSubmit={handleFormSubmit}>
             <Typography component="h1" variant="h5">
               Change Username
@@ -140,10 +135,14 @@ const theme = createTheme();
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 20, backgroundColor:'purple'}}
+
             >
               Save Changes
             </Button>
+          
+
+
           </form>
         </Box>
       </Container>
