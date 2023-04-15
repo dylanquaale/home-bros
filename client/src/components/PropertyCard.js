@@ -96,7 +96,7 @@ function PropertyCard() {
                 <CardMedia
                   component="img"
                   height="194"
-                  image={images[i]?.src.medium || property.image}
+                  image={property.image || images[i]?.src.medium}
                   alt="House"
                 />
                 <CardContent>
