@@ -120,7 +120,7 @@ const LoginForm = () => {
               variant="contained"
               sx={{ mt: 3, mb: 65, backgroundColor: 'purple'}}
             >
-              Submit
+              Login
             </Button>
           </Form>
         </Box>
