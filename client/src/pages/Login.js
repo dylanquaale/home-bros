@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-//  component loginForm that renders the login form 
+// component loginForm that renders the login form 
 // userFormData is represents the users credentials
 // Alert if the credentials are false
 const LoginForm = () => {
