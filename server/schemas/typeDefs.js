@@ -1,5 +1,7 @@
+// Import the gql function from the apollo-server-express module
 const { gql } = require('apollo-server-express');
 
+// Define the GraphQL schema using the gql function
 const typeDefs = gql`
   type User {
     _id: ID
@@ -39,4 +41,5 @@ const typeDefs = gql`
   }
 `;
 
+// Export the typeDefs schema for use in the server.js file
 module.exports = typeDefs;

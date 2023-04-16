@@ -116,8 +116,6 @@ const SignupForm = () => {
             required
           />
 
-
-          {/* <Box component="form" type='submit' noValidate sx={{ mt: 1 }}> */}
           {/* This is needed for the validation functionality above */}
           <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
             {/* show alert if server response is bad */}
@@ -134,16 +132,8 @@ const SignupForm = () => {
             >
               Sign Up
             </Button>
-
-            {/* <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
-          type='submit'
-          variant='success'>
-          Submit
-        </Button> */}
           </Form>
         </Box>
-        {/* </Box> */}
       </Container>
     </ThemeProvider>
   );
