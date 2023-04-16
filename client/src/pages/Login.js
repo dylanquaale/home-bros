@@ -15,13 +15,14 @@ import Button from "@mui/material/Button";
 
 //  component loginForm that renders the login form 
 // userFormData is represents the users credentials
+// Alert if the credentials are false
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-
+// executre the mutation from LOGIN_USER
   const [loginUser, { error }] = useMutation(LOGIN_USER);
-
+// event handler destructs name and value updates by using spread from previous state 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -30,30 +31,33 @@ const LoginForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
+    // checks if form is valid or not 
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
-
+// attempts to log the user in by the credentials used
+    // good goo gather the data 
     try {
       const { data } = await loginUser({
         variables: { ...userFormData },
       });
-
+// if not successful extract the token
       console.log(loginUser);
       Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
     }
-
+// state is reset by using empty strings 
     setUserFormData({
       username: "",
       email: "",
       password: "",
     });
   };
+  
+  // creates the theme 
   const theme = createTheme();
 
   return (
