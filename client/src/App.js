@@ -20,7 +20,7 @@ import theme from "./components/Theme";
 // import HomeThemeImage from './Assets/HomeTheme.png';
 import Profile from "./pages/Profile";
 
-
+// creating http link for graphql
 const httpLink = createHttpLink({
   uri: "/graphql",
   cache: new InMemoryCache(),
