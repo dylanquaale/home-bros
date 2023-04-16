@@ -1,5 +1,7 @@
 import { gql } from "@apollo/client";
 
+// retrieve users profile info 
+// return an object with the several fields that are listed below 
 export const QUERY_ME = gql`
 query me {
     me {
@@ -23,6 +25,8 @@ query me {
   }
 `
 
+// retrieve the properties
+//return an property object with the several fields that are listed below 
 export const QUERY_PROPERTIES = gql`
 query properties {
     properties {
