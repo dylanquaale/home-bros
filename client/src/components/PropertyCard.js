@@ -46,7 +46,7 @@ function PropertyCard() {
   
   const [expanded, setExpanded] = React.useState(false);
   const [images, setImages] = useState([]);
-
+//uses Pexels api for images
   useEffect(() => {
     const fetchImages = async () => {
       try {
@@ -68,7 +68,7 @@ function PropertyCard() {
 
     fetchImages();
   }, []);
-
+//expands property card
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -76,7 +76,7 @@ function PropertyCard() {
   if (loading) {
     return <h2>LOADING...</h2>;
   }
-
+// returns page content
   return (
     <>
       <Container maxWidth="lg">
