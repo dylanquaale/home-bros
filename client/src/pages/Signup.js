@@ -21,8 +21,11 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
+  // addUser by using mutation ADD_USER
   const [addUser, { error }] = useMutation(ADD_USER);
 
+  // handles input changes takes in event object as a parameter 
+  //extracts the name and value 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -47,7 +50,7 @@ const SignupForm = () => {
     } catch (err) {
       console.error(err);
     }
-
+// state is changed by the empty strings 
     setUserFormData({
       username: '',
       email: '',
