@@ -13,18 +13,22 @@ import {
     Button,
 } from '@mui/material';
 
+// update email component using the useQuery hook 
 export default function UpdateEmail() {
     const { data } = useQuery(QUERY_ME);
     const [userFormData, setUserFormData] = useState({
         email: "",
     });
+    
+    // use mutation from UPDATE_USER_EMAIL 
     const [UpdateEmail] = useMutation(UPDATE_USER_EMAIL);
-
+// handle change export the name and value 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
     };
-
+// handle the form submit when user submits form 
+    // if update email is true return updated otherwise return err 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -43,7 +47,7 @@ export default function UpdateEmail() {
 
     const { email } = data.me;
 
-    console.log(`email: ${email}`);
+    
 
     return (
         <ThemeProvider theme={theme}>

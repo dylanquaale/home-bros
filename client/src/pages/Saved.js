@@ -47,7 +47,7 @@ const ExpandMore = styled((props) => {
 const SavedProperties = () => {
   const { loading, data } = useQuery(QUERY_ME);
   let userData = data?.me || [];
-  console.log(userData);
+  
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);

@@ -1,10 +1,11 @@
-import React from "react";
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
-import { styled } from "@mui/material/styles";
+import React from "react"; // import React
+import Typography from '@mui/material/Typography'; // import Typography from @mui/material/Typography
+import Container from '@mui/material/Container'; // import Container from @mui/material/Container
+import { useQuery } from '@apollo/client'; // import { useQuery } from @apollo/client
+import { QUERY_ME } from '../utils/queries'; // import { QUERY_ME } query
+import { styled } from "@mui/material/styles"; // import { styled } from @mui/material/styles
 
+// DisplayUserDataStyle styles the container that will display the user's data
 const DisplayUserDataStyle = styled(Container)(({ theme }) => ({
     marginTop: '5%',
       color: theme.palette.common.black,
@@ -14,6 +15,7 @@ const DisplayUserDataStyle = styled(Container)(({ theme }) => ({
   justifyContent: 'center',
 }));
 
+// DisplayUserData component that returns the user's username and email from the database
 export default function DisplayUserData() {
     const { data } = useQuery(QUERY_ME);
     const { username, email } = data.me;

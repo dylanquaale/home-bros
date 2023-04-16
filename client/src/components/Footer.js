@@ -1,33 +1,24 @@
-import React from 'react';
-import { styled } from '@mui/material/styles';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
-import logo from '../Assets/logo.jpg';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-// import { Container } from 'react-bootstrap';
+import React from 'react'; // import React
+import { styled } from '@mui/material/styles'; // import { styled } from @mui/material/styles
+import logo from '../Assets/logo.jpg'; // import logo
+import Grid from '@mui/material/Grid'; // import Grid from @mui/material/Grid
+import Typography from '@mui/material/Typography'; // import Typography from @mui/material/Typography
+import Link from '@mui/material/Link'; // import Link from @mui/material/Link
 
-// const FootContainer = styled(Grid)({
-//   display: 'flex',
-//   flexDirection: 'column',
-//   minHeight: '100vh',
-// });
-
-// const Foot = styled(Grid)({
-//   flexGrow: '1',
-// });
-
+// FooterText styles the text in the footer
 const FooterText = styled(Typography)(({ theme }) => ({
   fontFamily: 'Trebuchet MS',
   color: theme.palette.common.white
 }));
 
+// FooterRoot styles the footer container
 const FooterRoot = styled('footer')(({ theme }) => ({
   marginTop: '67%',
   backgroundColor: theme.palette.primary.dark,
   padding: theme.spacing(6, 0),
 }));
 
+// FooterLink styles the links in the footer
 const FooterLink = styled(Link)(({ theme }) => ({
   color: theme.palette.common.white,
   fontFamily: 'Trebuchet MS',
@@ -41,11 +32,13 @@ const FooterLink = styled(Link)(({ theme }) => ({
   },
 }));
 
+// LogoContainer styles the container that holds the logo and the text in the footer
 const LogoContainer = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
 
+// LogoImage styles the logo in the footer
 const LogoImage = styled('img')(({ theme }) => ({
   padding: '5px',
   borderRadius: '50px',
@@ -53,11 +46,10 @@ const LogoImage = styled('img')(({ theme }) => ({
   marginRight: theme.spacing(1),
 }));
 
+// Footer component that returns the footer for the application
 export default function Footer() {
   return (
     <FooterRoot>
-      {/* <FootContainer>
-        <Foot> */}
           <Grid container>
             <Grid item xs={12} sm={6}>
               <LogoContainer>
@@ -88,8 +80,6 @@ export default function Footer() {
               </Typography>
             </Grid>
           </Grid>
-        {/* </Foot>
-      </FootContainer> */}
     </FooterRoot>
   );
 }
