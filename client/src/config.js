@@ -1,1 +1,2 @@
-export const PEXELS_API_KEY = 'dTxSFdIsdAJk7qP6gPugs1z5ftld7yXjc9AoOiQVScGERh4YmLl3skpP';
+// export const PEXELS_API_KEY = 'dTxSFdIsdAJk7qP6gPugs1z5ftld7yXjc9AoOiQVScGERh4YmLl3skpP';
+// saved for later use and tried dotenv implementation but needed a new webapack, etc. so not worth it right now when this api key is not being used and the rest of the api function is not currently being used either
