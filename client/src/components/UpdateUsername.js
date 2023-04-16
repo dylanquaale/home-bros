@@ -13,18 +13,21 @@ import {
     Button,
 } from '@mui/material';
 
+// update username using the useQuery hook from apollo
 export default function UpdateUsername() {
     const { data } = useQuery(QUERY_ME);
     const [userFormData, setUserFormData] = useState({
         username: "",
     });
+    // useMutation from UPDATE_USER_USERNAME
     const [updateUsername] = useMutation(UPDATE_USER_USERNAME);
-
+// function extracts the name and the value 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
     };
-
+// handleFormSubmit is called when user submits the form to update 
+    // if true will use apollo client to update the users info
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -43,7 +46,7 @@ export default function UpdateUsername() {
 
     const { username } = data.me;
 
-   
+    console.log(`username: ${username}`);
 
     return (
         <ThemeProvider theme={theme}>
