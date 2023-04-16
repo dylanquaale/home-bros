@@ -1,15 +1,15 @@
 # Homebros
-
 https://arcane-savannah-38796.herokuapp.com/
 
 ## Description
-- USER STORY
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+- User Story
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+AS A REAL ESTATE BROKER
+I WANT TO SHOW HOMEBUYERS MY CURRENT REAL ESTATE LISTINGS
+HOMEBUYERS CAN SAVE/DELETE LISTINGS
+SO THAT IT’S EASIER FOR HOMEBUYERS TO SEARCH FOR A HOUSE AND RECALL HOUSES THAT THEY LIKE.
+
+As a real estate brokerage we wanted to make a web app the makes it easy for our clients to view and save our current listings along with save their information to our site.
 
 ## Table of contents
 - [Description](#description)
@@ -22,8 +22,7 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Installation 
 - Installation instructions
-
-
+    Need to have faker and material ui installed, and other necessary installations required by MERN stack and Node.
 
 ## Usage
 - Provide instructions and examples for use. Include screenshots as needed.
@@ -42,6 +41,7 @@ SCREENSHOTS
 - ![Screenshot of Change User Data page/profile page](/client/src/Assets/homeBrosChangeUserData.png)
 - ![Screenshot of User Saved Properties page/saved page](/client/src/Assets/homeBrosChangeUserData.png)
 - ![Screenshot of Footer/home page](/client/src/Assets/homeBrosFooter.png)
+
 ## Credits 
 
 - In collaboration with : 
