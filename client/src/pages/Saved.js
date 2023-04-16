@@ -30,6 +30,7 @@ const Header = styled(Typography)`
   margin-bottom: 30px;
 `;
 
+// functions takes in two props using destructuring and the the rest are passed to the icon button using the spread operator
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -41,6 +42,8 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
+// component sace properties is rendered 
+// when user clicks the expandable toggles expanded 
 const SavedProperties = () => {
   const { loading, data } = useQuery(QUERY_ME);
   let userData = data?.me || [];
