@@ -19,38 +19,47 @@ export default function PrimarySearchAppBar() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
 
+  // isMenuOpen and isMobileMenuOpen are used to determine if the menu is open or not and to close the menu when the user clicks away
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  // handleProfileMenuOpen is used to open the menu when the user clicks on the menu icon
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
+  // handleMobileMenuClose is used to close the menu when the user clicks away from the menu icon on mobile
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
 
+  // handleMenuClose is used to close the menu when the user clicks away
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
 
+  // handleMobileMenuOpen is used to open the menu when the user clicks on the menu icon on mobile
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  // handleLoginClick is used to navigate to the login page when the user clicks on the login button
   const handleProfileClick = () => {
     navigate("/profile");
     handleMenuClose();
   };
+  // handleLoginClick is used to navigate to the login page when the user clicks on the login button
   const handleNotLoggedIn = () => {
     navigate("/login");
   };
+  // handleLoginClick is used to navigate to the login page when the user clicks on the login button
   const handleSavedClick = () => {
     navigate("/saved");
     handleMenuClose();
   };
 
+  // HomeBrosImage styles the HomeBros logo in the navbar
   const HomeBrosImage = styled("img")(({ theme }) => ({
     padding: "5px",
     borderRadius: "50px",
@@ -58,6 +67,7 @@ export default function PrimarySearchAppBar() {
     marginRight: theme.spacing(1),
   }));
 
+  // menuId and mobileMenuId are used to identify the menu and mobile menu
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -71,17 +81,18 @@ export default function PrimarySearchAppBar() {
       transformOrigin={{
         vertical: "top",
         horizontal: "right",
-      }}
+      }} 
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      {Auth.loggedIn() ? (
+      {Auth.loggedIn() ? ( // if the user is logged in, show the profile and saved properties menu items
         <div>
           <MenuItem component={Link} to="/profile">Profile</MenuItem>
           <MenuItem component={Link} to="/saved">My Saved Properties</MenuItem>
         </div>
       ) : (
-        <div>
+        <div> 
+          {/* if the user is not logged in, show the profile and saved properties menu items that will navigate to the login page when clicked */}
           <MenuItem onClick={handleNotLoggedIn}>Profile</MenuItem>
           <MenuItem onClick={handleNotLoggedIn}>My Saved Properties</MenuItem>
         </div>
@@ -89,6 +100,7 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+  // mobileMenuId is used to identify the mobile menu and renderMobileMenu is used to render the mobile menu
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
@@ -106,6 +118,7 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      {/* if the user is logged in, show the profile and saved properties menu items */}
       <MenuItem onClick={handleProfileClick}>
         <IconButton
           size="large"
@@ -133,6 +146,7 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+  // PrimarySearchAppBar returns the navbar container and the navbar elements and renders the menu and mobile menu when the user clicks on the menu icon
   return (
     <Box sx={{ flexGrow: 1 }} >
       <AppBar position="static"  >
@@ -158,6 +172,7 @@ export default function PrimarySearchAppBar() {
             alt="HomeBros Logo"
           />
           <Box sx={{ flexGrow: 1 }}  />
+          {/* if the user is logged in, show the logout button, if the user is not logged in, show the signup and login buttons */}
           <div>
             {Auth.loggedIn() ? (
               <div>
@@ -167,6 +182,7 @@ export default function PrimarySearchAppBar() {
               </div>
             ) : (
               <div>
+                {/* if the user is not logged in, show the signup and login buttons that will navigate to the signup and login pages when clicked */}
                 <Link to="/signup">
                   <Button component="" variant="contained">
                     Signup
@@ -178,6 +194,7 @@ export default function PrimarySearchAppBar() {
               </div>
             )}
           </div>
+          {/* if the user is logged in, show the profile and saved properties menu items */}
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
@@ -192,6 +209,7 @@ export default function PrimarySearchAppBar() {
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
+            {/* if the user is logged in, show the profile and saved properties menu items */}
             <IconButton
               size="large"
               aria-label="show more"
