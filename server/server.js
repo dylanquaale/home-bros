@@ -1,13 +1,18 @@
+// Import the required modules needed. 
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 
+// Import the GraphQL type definitions and resolvers
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+// Set up the server port
 const PORT = process.env.PORT || 3001;
+// Initialize the Express application.
 const app = express();
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
