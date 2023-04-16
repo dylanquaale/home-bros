@@ -42,7 +42,7 @@ const ExpandMore = styled((props) => {
 function PropertyCard() {
   const { loading, data } = useQuery(QUERY_PROPERTIES);
   const propertylist = data?.properties || [];
-  console.log(propertylist);
+  
   const [expanded, setExpanded] = React.useState(false);
   const [images, setImages] = useState([]);
 

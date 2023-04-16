@@ -45,7 +45,7 @@ module.exports = {
           return res.json(user);
       },
       async saveProperty({ user, body }, res) {
-        console.log(user);
+       
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: user._id },

@@ -41,7 +41,7 @@ export default function UpdatePassword() {
 
     const { password } = data.me;
 
-    console.log(`password: ${password}`);
+    
 
     const theme = createTheme();
 
