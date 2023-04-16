@@ -13,18 +13,22 @@ import {
     Button,
 } from '@mui/material';
 
+// update password component using the useQuery hook 
 export default function UpdatePassword() {
     const { data } = useQuery(QUERY_ME);
     const [userFormData, setUserFormData] = useState({
         password: "",
     });
+    
+    // use mutation from UPDATE_USER_PASSWORD
     const [updatePassword] = useMutation(UPDATE_USER_PASSWORD);
-
+// extract the name and value from the user 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
     };
-
+// handles the form on submit if true change the password
+    // alert password is updated 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
