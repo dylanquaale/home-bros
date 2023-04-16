@@ -1,26 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import axios from 'axios';
-import { PEXELS_API_KEY } from '../config';
-
-import FavoriteButton from '../components/FavoriteButton';
-const { QUERY_PROPERTIES } = require('../utils/queries');
-const { useQuery } = require('@apollo/client');
-
+import React, { useEffect, useState } from 'react'; // import React, { useEffect, useState } from 'react';
+import { styled } from '@mui/material/styles'; // import { styled }
+import Card from '@mui/material/Card'; // import Card
+import CardHeader from '@mui/material/CardHeader'; // import CardHeader
+import CardMedia from '@mui/material/CardMedia'; // import CardMedia
+import CardContent from '@mui/material/CardContent'; // import CardContent
+import CardActions from '@mui/material/CardActions'; // import CardActions
+import Collapse from '@mui/material/Collapse'; // import Collapse
+import Avatar from '@mui/material/Avatar'; // import Avatar
+import IconButton from '@mui/material/IconButton'; // import IconButton
+import Typography from '@mui/material/Typography'; // import Typography
+import { red } from '@mui/material/colors'; // import { red }
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'; // import ExpandMoreIcon
+import Container from '@mui/material/Container'; // import Container
+import Grid from '@mui/material/Grid'; // import Grid
+import axios from 'axios'; // import axios for API calls
+import { PEXELS_API_KEY } from '../config'; // import PEXELS_API_KEY from config
+import FavoriteButton from '../components/FavoriteButton'; // import FavoriteButton
+const { QUERY_PROPERTIES } = require('../utils/queries'); // import { QUERY_PROPERTIES } query
+const { useQuery } = require('@apollo/client'); // import { useQuery } from @apollo/client
+ 
+// Header styles the header that will display the text "Properties"
 const Header = styled(Typography)`
   font-size: 36px;
   font-weight: bold;
@@ -28,6 +27,7 @@ const Header = styled(Typography)`
   margin-bottom: 30px;
 `;
 
+// ExpandMore styles the expand button that will be used to expand the card to display more information
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -39,6 +39,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
+// PropertyCard component that returns the property's address, image, and description from the database and displays it in a card
 function PropertyCard() {
   const { loading, data } = useQuery(QUERY_PROPERTIES);
   const propertylist = data?.properties || [];
@@ -78,7 +79,6 @@ function PropertyCard() {
 
   return (
     <>
-      {/* <CssBaseline /> */}
       <Container maxWidth="lg">
         <Header variant="h1" align="center" >Listings Currently Available</Header>
         <Grid container spacing={3}>

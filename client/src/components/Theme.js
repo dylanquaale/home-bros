@@ -1,6 +1,7 @@
-import { createTheme } from '@mui/material/styles';
-import HomeThemeImage from '../Assets/House.png';
+import { createTheme } from '@mui/material/styles'; // import { createTheme } from @mui/material/styles
+import HomeThemeImage from '../Assets/House.png'; // import HomeThemeImage from '../Assets/House.png'
 
+// CreateTheme component that returns the theme for the application and sets the background image
 const theme = createTheme({
   palette: {
     background: {

@@ -1,18 +1,19 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import Auth from "../utils/auth";
-import { Button } from "@mui/material";
-import { useNavigate, Link } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import HomeBros from "../Assets/HomeBros.jpg";
+import * as React from "react"; // import React
+import AppBar from "@mui/material/AppBar"; // import AppBar
+import Box from "@mui/material/Box"; // import Box
+import Toolbar from "@mui/material/Toolbar"; // import Toolbar
+import IconButton from "@mui/material/IconButton"; // import IconButton
+import MenuItem from "@mui/material/MenuItem"; // import MenuItem
+import Menu from "@mui/material/Menu"; // import Menu
+import AccountCircle from "@mui/icons-material/AccountCircle"; // import AccountCircle
+import MoreIcon from "@mui/icons-material/MoreVert";  // import MoreIcon
+import Auth from "../utils/auth"; // import Auth
+import { Button } from "@mui/material"; // import { Button }
+import { useNavigate, Link } from "react-router-dom"; // import { useNavigate, Link }
+import { styled } from "@mui/material/styles"; // import { styled }
+import HomeBros from "../Assets/HomeBros.jpg"; // import HomeBros
 
+// PrimarySearchAppBar styles the navbar container and the navbar elements
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
