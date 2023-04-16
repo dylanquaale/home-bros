@@ -22,7 +22,7 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Installation 
 - Installation instructions
-hello world
+
 
 
 ## Usage
@@ -36,6 +36,12 @@ hello world
 
 SCREENSHOTS
 
+- ![Screenshot of Main Page/home page](/client/src/Assets/homeBrosMain.png)
+- ![Screenshot of SignUp/signup page](/client/src/Assets/homeBrosSignUp.png)
+- ![Screenshot of Login/login page](/client/src/Assets/homeBrosLogin.png)
+- ![Screenshot of Change User Data page/profile page](/client/src/Assets/homeBrosChangeUserData.png)
+- ![Screenshot of User Saved Properties page/saved page](/client/src/Assets/homeBrosChangeUserData.png)
+- ![Screenshot of Footer/home page](/client/src/Assets/homeBrosFooter.png)
 ## Credits 
 
 - In collaboration with : 
