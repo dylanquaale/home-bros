@@ -2,14 +2,13 @@
 https://arcane-savannah-38796.herokuapp.com/
 
 ## Description
-- User Story
 
 AS A REAL ESTATE BROKER
 I WANT TO SHOW HOMEBUYERS MY CURRENT REAL ESTATE LISTINGS
 HOMEBUYERS CAN SAVE/DELETE LISTINGS
 SO THAT IT’S EASIER FOR HOMEBUYERS TO SEARCH FOR A HOUSE AND RECALL HOUSES THAT THEY LIKE.
 
-As a real estate brokerage we wanted to make a web app the makes it easy for our clients to view and save our current listings along with save their information to our site.
+- As a real estate brokerage we wanted to make a web app the makes it easy for our clients to view and save our current listings along with save their information to our site. Users can create a profile signup/login/logout/save properties and delete properties. Along with being able to update all of your information as far as username, email and password. On our home page the user is presented with cards containing an image of the property along with information about the property when our dropdown arrow is clicked. Click the heart on the left of the card and the property is now saved as one of your saved properties and the heart is turned red.  Navigate to your ‘saved properties’ tab and you will be presented with all of the properties you have saved. In the same dropdown tab on the card you will find a remove property button. When clicked the property is removed from your saved properties list. Navigate to your profile page and the user is able to update their username, email, and password. 
 
 ## Table of contents
 - [Description](#description)
@@ -22,12 +21,15 @@ As a real estate brokerage we wanted to make a web app the makes it easy for our
 
 ## Installation 
 - Installation instructions
-    Need to have faker and material ui installed, and other necessary installations required by MERN stack and Node.
+
+npm i 
+This will install all of the dependencies that are necessry. 
+(You will need either MonogoDB Compass or access to the Apollo Graphql playground)
+run cd server/utils and run node seed.js which will seed randomly generated properties from the faker API and insert them into the database which is why you need MongoDB or Apollo playground to verify your seeds.
+return to the main folder by running cd ../.. and run npm run develop and the will automatically start up.
+
 
 ## Usage
-- Provide instructions and examples for use. Include screenshots as needed.
-
-- To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
 
 - <a href="https://github.com/dylanquaale/home-bros">Github Repo</a>
 
