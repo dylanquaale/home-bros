@@ -4,12 +4,12 @@ import { useMutation } from "@apollo/client";
 import { Button } from "@mui/material";
 
 export default function DeleteButton({ property }) {
-  console.log(property);
+  
   const [isDeleted, setDeleted] = useState(false);
   const [removeProperty] = useMutation(REMOVE_PROPERTY);
   async function handleClick(prevState) {
     // setDeleted(!prevState);
-    console.log(property._id);
+    
       try {
         const { data } = await removeProperty({
           variables: {
@@ -17,9 +17,9 @@ export default function DeleteButton({ property }) {
           },
         });
 
-        console.log(data);
+        
       } catch (error) {
-        console.log(error);
+        
       }
     }
 

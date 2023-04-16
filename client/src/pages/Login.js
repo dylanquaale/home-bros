@@ -44,7 +44,7 @@ const LoginForm = () => {
         variables: { ...userFormData },
       });
 // if not successful extract the token
-      console.log(loginUser);
+      
       Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
