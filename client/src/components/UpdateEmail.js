@@ -43,7 +43,7 @@ export default function UpdateEmail() {
 
     const { email } = data.me;
 
-    console.log(`email: ${email}`);
+    
 
     return (
         <ThemeProvider theme={theme}>

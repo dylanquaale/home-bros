@@ -43,7 +43,7 @@ export default function UpdateUsername() {
 
     const { username } = data.me;
 
-    console.log(`username: ${username}`);
+   
 
     return (
         <ThemeProvider theme={theme}>

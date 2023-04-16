@@ -51,7 +51,7 @@ module.exports = {
 
 // Controller function to save a property to the user's savedProperties array
       async saveProperty({ user, body }, res) {
-        console.log(user);
+        
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: user._id },
